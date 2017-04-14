@@ -5,6 +5,7 @@ import HomePage from './components/home/HomePage';
 import SignUpPage from './components/signup/SignUpPage';
 import SignInPage from './components/signin/SignInPage';
 import AboutUsPage from './components/aboutus/AboutUsPage';
+import DashboardPage from './components/dashboard/DashboardPage';
 
 export default (
   <Route path="/" component={ App }>
@@ -12,5 +13,6 @@ export default (
     <Route path="/signup" component={ SignUpPage } />
     <Route path="/signin" component={ SignInPage } />
     <Route path="/aboutus" component={ AboutUsPage } />
+    <Route path="/dashboard" component={ DashboardPage } />
   </Route>
 );

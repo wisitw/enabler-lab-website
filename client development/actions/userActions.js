@@ -35,9 +35,20 @@ export function signin(user) {
 
 export function signout(token) {
   return function(dispatch) {
-    return userApi.signout({token: token}).then(response => {
-      console.log(response);
+    return userApi.signout({token: token}).then(() => {
       dispatch(userApi.signoutSuccess());
+    });
+  };
+}
+
+export function updateUser(userAttribute, value, token) {
+  return function(dispatch) {
+    return userApi.updateUserInfo(userAttribute, value, token).then(response => {
+      if (response.success) {
+        dispatch(userApi.updateUserInfoSuccess(userAttribute, value));
+      } else {
+        dispatch(userApi.updateUserInfoError(userAttribute, value));
+      }
     });
   };
 }

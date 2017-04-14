@@ -25,3 +25,13 @@
   color: #888;
 }
 
+.editable-text {
+  font-weight: normal;
+}
+
+.side-padding-36 {
+  padding-left: 36px;
+  padding-right: 36px;
+  padding-bottom: 36px;
+}
+

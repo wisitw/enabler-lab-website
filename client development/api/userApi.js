@@ -10,6 +10,26 @@ function userToApiUser(user) {
   };
 }
 
+function userAttributeToApiUserAttribute(userAttribute, value, token) {
+  switch (userAttribute) {
+    case 'firstName':
+      return {
+        fname: value,
+        token: token
+      }
+    case 'lastName':
+      return {
+        lname: value,
+        token: token
+      }
+    default:
+      return {
+        [userAttribute]: value,
+        token: token
+      };
+  }
+}
+
 function apiUserToUser(user) {
   return {
     firstName: user.fname,
@@ -177,4 +197,40 @@ export function signoutSuccess() {
   return {
     type: types.SIGNOUT_SUCCESS
   }
+}
+
+export function updateUserInfo(userAttribute, value, token) {
+  const formBody = rootApi.objectToBody(userAttributeToApiUserAttribute(userAttribute, value, token));
+
+  const request = new Request(rootApi.rootEndPoint + 'editinfo', {
+    method: 'POST',
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }),
+    body: formBody
+  });
+
+  return fetch(request).then(response => {
+    return response.json();
+  }).catch(error => {
+    return error;
+  });
+}
+
+export function updateUserInfoSuccess(userAttribute, value) {
+  return {
+    type: types.UPDATE_USER_INFO_SUCCESS,
+    user: { [userAttribute]: value },
+    userAttribute: userAttribute,
+  }
+}
+
+export function updateUserInfoError(userAttribute, value) {
+  return {
+    type: types.UPDATE_USER_INFO_ERROR,
+    user: { [userAttribute]: value },
+    userAttribute: userAttribute,
+  }
+
 }

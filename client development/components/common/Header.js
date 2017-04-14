@@ -20,7 +20,7 @@ class Header extends Component {
     const rightNav = this.props.user.isSignedIn ? (
       <Nav pullRight>
         <NavItem eventKey={1}>
-          { this.props.user.firstName + ' ' + this.props.user.lastName }
+          <Link to="/dashboard" activeClassName="active">{ this.props.user.firstName + ' ' + this.props.user.lastName }</Link>
         </NavItem>
         <li role="presentation" className="">
           <a role="button" href="#">
