@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link, IndexLink } from 'react-router';
@@ -20,11 +20,11 @@ class Header extends Component {
     const rightNav = this.props.user.isSignedIn ? (
       <Nav pullRight>
         <NavItem eventKey={1}>
-          { this.props.user.fname + ' ' + this.props.user.lname }
+          { this.props.user.firstName + ' ' + this.props.user.lastName }
         </NavItem>
-        <li role="presentation" class="">
+        <li role="presentation" className="">
           <a role="button" href="#">
-            <a href="#" class="active" onClick={ this.signout }>Logout</a>
+            <a href="#" className="active" onClick={ this.signout }>Logout</a>
           </a>
         </li>
       </Nav>
@@ -60,13 +60,18 @@ class Header extends Component {
   }
 }
 
+Header.propTypes = {
+  actions: PropTypes.object.isRequired,
+  user: PropTypes.object
+}
+
 function mapStateToProps (state, ownProps) {
   return {
     user: state.user
   }
 }
 
-function mapDispatchToProps (dispatch, ownProps) => {
+function mapDispatchToProps (dispatch, ownProps) {
   return {
     actions: bindActionCreators(userActions, dispatch)
   }

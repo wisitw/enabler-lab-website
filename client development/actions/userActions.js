@@ -21,8 +21,7 @@ export function signin(user) {
       const token = response.token;
       if (response.success == true) {
         userApi.getCurrentUser({token: token}).then(response => {
-          console.log(response);
-          dispatch(userApi.signinSuccess(response, token));
+          dispatch(userApi.signinSuccess(response.user, token));
         })      
       } else {
         dispatch(userApi.signinError(user, response.error));
@@ -36,7 +35,8 @@ export function signin(user) {
 
 export function signout(token) {
   return function(dispatch) {
-    return userApi.signout(token).then(response => {
+    return userApi.signout({token: token}).then(response => {
+      console.log(response);
       dispatch(userApi.signoutSuccess());
     });
   };

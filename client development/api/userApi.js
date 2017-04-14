@@ -99,9 +99,9 @@ export function signin(user) {
 }
 
 export function signinSuccess(user, token) {
-  console.log(user);
   let userWithToken = apiUserToUser(user);
   userWithToken.token = token;
+
 
   return {
     type: types.SIGNIN_SUCCESS, 
