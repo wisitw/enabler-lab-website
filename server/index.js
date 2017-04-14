@@ -10,6 +10,8 @@ let server = express();
 server.use(logger('combined'));
 server.use('/js', express.static(path.join(__dirname, STATIC_PATH, 'js')));
 server.use('/css', express.static(path.join(__dirname, STATIC_PATH, 'css')));
+server.use('/assets', express.static(path.join(__dirname, STATIC_PATH, 'assets')));
+server.use('/images', express.static(path.join(__dirname, STATIC_PATH, 'images')));
 
 server.use('/', (request, response) => {
   response.sendFile(path.join(__dirname, STATIC_PATH, 'index.html'));

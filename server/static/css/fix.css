@@ -1,0 +1,27 @@
+.navbar-default .navbar-nav > li > a > a {
+  color: #777;
+}
+
+.navbar-default .navbar-nav > li > a > a:hover,.navbar-default .navbar-nav > li > a >a:focus{
+  color:#333;
+  background-color:transparent;
+}
+
+.hightlight-box {
+  padding-bottom: 16px;
+}
+
+.hightlight-box .highlight-item {
+  margin-right: 16px;
+  text-align: center;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+}
+
+.hightlight-box .highlight-item .project-name {
+  font-weight: 500;
+}
+
+.hightlight-box .highlight-item .author {
+  color: #888;
+}
+

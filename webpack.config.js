@@ -36,6 +36,7 @@ module.exports = function () {
           NODE_ENV: JSON.stringify('production')
         }
       }),
+      /*
       new webpack
         .optimize
         .UglifyJsPlugin({
@@ -44,6 +45,7 @@ module.exports = function () {
             comments: false
           }
         })
+        */
     ]
   };
 };
