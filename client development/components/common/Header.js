@@ -13,7 +13,7 @@ class Header extends Component {
 
   signout(event) {
     event.preventDefault();
-    this.props.actions.signout();
+    this.props.actions.signout(this.props.user.token);
   }
 
   render() {
