@@ -2,18 +2,18 @@ import React, { Component, PropTypes } from 'react';
 import Slider from 'react-slick';
 import ImageContainer from './ImageContainer';
 import ImagePreview from '../addproject/ImagePreview';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as projectActions from '../../actions/projectActions';
 
 class EditableImagesContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      //images: props.value,
-      images: {
-
-      },
-      //imageIndexCounter: (Object.keys(props.value).length + 1),
-      imageIndexCounter: 3,
+      images: this.props.project.projectImages,
+      imageIndexCounter: (Object.keys(this.props.project.projectImages).length + 1),
+      hasEditPermission: this.props.project.hasEditPermission,
       isEditing: false,
       formClass: "",
       error: "",
@@ -29,28 +29,19 @@ class EditableImagesContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
+      images: nextProps.project.projectImages,
+      imageIndexCounter: (Object.keys(nextProps.project.projectImages).length + 1),
+      hasEditPermission: nextProps.project.hasEditPermission,
       isEditing: false
     });
   }
 
-  componentWillMount() {
-    // TODO: call action here to load project, check if user can edit or not
-    setTimeout(() => {
-      this.setState({
-        images: {
-          1: "https://yt3.ggpht.com/-v0soe-ievYE/AAAAAAAAAAI/AAAAAAAAAAA/OixOH_h84Po/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
-          2: "https://vignette2.wikia.nocookie.net/starwars/images/d/df/Masterobiwan.jpg/revision/latest/scale-to-width-down/220?cb=20080719000305"
-        }
-      })
-    }, 1000);
-  }
-
   handleClick(event) {
-    //if (this.props.hasPermission) {
+    if (this.state.hasEditPermission) {
       this.setState({
         isEditing: true
       });
-    //}
+    }
   }
 
   handleAddClick(event) {
@@ -147,8 +138,19 @@ class EditableImagesContainer extends Component {
 
 EditableImagesContainer.propTypes = {
   projectUrl: PropTypes.string.isRequired,
-  // project: PropTypes.object.isRequired,
-  hasPermission: PropTypes.bool.isRequired
+  project: PropTypes.object.isRequired
 }
 
-export default EditableImagesContainer;
+function mapStateToProps(state) {
+  return {
+    project: state.project
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(projectActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditableImagesContainer);

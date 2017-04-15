@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { browserHistory } from 'react-router';
-import UserForm from './UserForm';
+import EditableTextGroup from './EditableTextGroup';
 import * as userActions from '../../actions/userActions';
 
 class UserFormContainer extends Component {
@@ -11,32 +10,49 @@ class UserFormContainer extends Component {
     this.state = {
       user: this.props.user
     };
-    this.updateFormState = this.updateFormState.bind(this);
-    this.checkFormError = this.checkFormError.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
-    if (!this.props.user.isSignedin) {
-      browserHistory.push('/signin');
-    }
+    this.props.actions.fetchCurrentUser();
   }
 
   render() {
     return (
-      <UserForm formInfo={ this.state } />
+      <div className="inner-box category-content">
+        <h2 className="title-2"><i className="icon-user"></i> Edit your account </h2>
+        <div className="row">
+          <div className="col-sm-12">
+            <EditableTextGroup name="firstName" label="First Name" isRequired={ true } />
+            <EditableTextGroup name="lastName" label="Last Name" isRequired={ true } />
+
+            <form className="form-horizontal">
+              <div className="form-group">
+                <label className="col-sm-4 control-label">Email</label>
+                <div className="col-sm-6">
+                  <label className="control-label editable-text">{ this.props.user.email }</label>
+                </div>
+              </div>
+            </form>
+
+            <EditableTextGroup name="password" label="Password" types="password" isRequired={ true } isPassword={ true } />
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
 UserFormContainer.propTypes = {
   actions: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
 }
 
-function mapStateToProps(state, props) {
-  return state.user;
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  };
 }
+
 
 function mapDispatchToProps(dispatch) {
   return {

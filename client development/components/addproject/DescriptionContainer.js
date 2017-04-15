@@ -22,6 +22,16 @@ class DescriptionContainer extends React.Component {
     this.handleBlur = this.handleBlur.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const blocksFromHTML = convertFromHTML(nextProps.value);
+    const state = ContentState.createFromBlockArray(blocksFromHTML.contentBlocks, blocksFromHTML.entityMap);
+
+    this.setState({
+      isEditing: false,
+      editorState: EditorState.createWithContent(state)
+    });
+  }
+
   handleChange(editorState) {
     this.setState({editorState});
   }

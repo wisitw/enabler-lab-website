@@ -30,7 +30,7 @@ function userAttributeToApiUserAttribute(userAttribute, value, token) {
   }
 }
 
-function apiUserToUser(user) {
+export function apiUserToUser(user) {
   return {
     firstName: user.fname,
     lastName: user.lname,
@@ -128,13 +128,10 @@ export function signin(user) {
 }
 
 export function signinSuccess(user, token) {
-  let userWithToken = apiUserToUser(user);
-  userWithToken.token = token;
-
-
   return {
     type: types.SIGNIN_SUCCESS, 
-    user: userWithToken
+    user: apiUserToUser(user),
+    token: token
   }
 }
 
@@ -164,7 +161,7 @@ export function signinError(user, error) {
   }
 }
 
-export function getCurrentUser(token) {
+export function fetchCurrentUser(token) {
   const formBody = rootApi.objectToBody(token);
 
   const request = new Request(rootApi.rootEndPoint + 'userdata', {
@@ -227,19 +224,23 @@ export function updateUserInfo(userAttribute, value, token) {
   });
 }
 
-export function updateUserInfoSuccess(userAttribute, value) {
+export function updateUserInfoSuccess(user) {
   return {
     type: types.UPDATE_USER_INFO_SUCCESS,
-    user: { [userAttribute]: value },
-    userAttribute: userAttribute,
+    user: apiUserToUser(user)
   }
 }
 
-export function updateUserInfoError(userAttribute, value) {
+export function fetchCurrentUserSuccess(user) {
   return {
-    type: types.UPDATE_USER_INFO_ERROR,
-    user: { [userAttribute]: value },
-    userAttribute: userAttribute,
+    type: types.FETCH_CURRENT_USER_INFO_SUCCESS,
+    user: apiUserToUser(user)
   }
+}
 
+export function fetchProjectError() {
+  return {
+    type: types.FETCH_CURRENT_USER_INFO_ERROR,
+    user: {}
+  }
 }

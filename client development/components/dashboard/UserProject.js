@@ -1,11 +1,26 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import ProjectItem from './ProjectItem';
 import Slider from 'react-slick';
+import * as projectActions from '../../actions/projectActions';
 
 class UserProject extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      projects: this.props.projects.projects
+    }
+  }
+
+  componentWillMount() {
+    this.props.actions.getMyProjects();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      projects: nextProps.projects.projects
+    });
   }
 
   render() {
@@ -24,23 +39,27 @@ class UserProject extends Component {
         <div className="row">
           <div className="col-sm-12">
             <div className="side-padding-36">
-              <Slider {...settings}>
-                <div>
-                  <ProjectItem key="1" projectName="Test1" author="Kiki" />
-                </div>
-                <div>
-                  <ProjectItem key="2" projectName="Test2" author="Kiki" />
-                </div>
-                <div>
-                  <ProjectItem key="3" projectName="Test3" author="Kiki" />
-                </div>
-                <div>
-                  <ProjectItem key="4" projectName="Test4" author="Kiki" />
-                </div>
-                <div>
-                  <ProjectItem key="5" projectName="Test5" author="Kiki" />
-                </div>
-              </Slider>
+              {
+                (Object.keys(this.state.projects).length > 0) ? (
+                  <Slider {...settings}>
+                    {
+                      Object.keys(this.state.projects).map((key, index) => {
+                        return (
+                            <div>
+                              {
+                                (Object.keys(this.state.projects[key].projectImages).length > 0) ? (
+                                  <ProjectItem key={ key } projectName={ this.state.projects[key].projectName } author={ this.state.projects[key].projectOwner.firstName + " " + this.state.projects[key].projectOwner.lastName } image={ this.state.projects[key].projectImages[Object.keys(this.state.projects[key].projectImages)[0]] } url={ this.state.projects[key].projectUrl } />
+                                ) : (
+                                  <ProjectItem key={ key } projectName={ this.state.projects[key].projectName } author={ this.state.projects[key].projectOwner.firstName + " " + this.state.projects[key].projectOwner.lastName } url={ this.state.projects[key].projectUrl } />
+                                )
+                              }
+                            </div>
+                        )
+                      })
+                    }
+                  </Slider>
+                ) : ""
+              }
             </div>
           </div>
         </div>
@@ -50,13 +69,20 @@ class UserProject extends Component {
 }
 
 UserProject.propTypes = {
-  user: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  projects: PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    projects: state.projects
   }
 }
 
-export default connect(mapStateToProps)(UserProject);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(projectActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserProject);

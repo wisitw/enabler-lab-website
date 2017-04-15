@@ -20,7 +20,7 @@ export function signin(user) {
     return userApi.signin(user).then(response => {
       const token = response.token;
       if (response.success == true) {
-        userApi.getCurrentUser({token: token}).then(response => {
+        userApi.fetchCurrentUser({token: token}).then(response => {
           dispatch(userApi.signinSuccess(response.user, token));
         })      
       } else {
@@ -33,21 +33,30 @@ export function signin(user) {
   };
 }
 
-export function signout(token) {
+export function signout() {
   return function(dispatch) {
-    return userApi.signout({token: token}).then(() => {
+    return userApi.signout({token: localStorage.getItem("enablerT")}).then(() => {
       dispatch(userApi.signoutSuccess());
     });
   };
 }
 
-export function updateUser(userAttribute, value, token) {
+export function updateUser(userAttribute, value) {
   return function(dispatch) {
-    return userApi.updateUserInfo(userAttribute, value, token).then(response => {
-      if (response.success) {
-        dispatch(userApi.updateUserInfoSuccess(userAttribute, value));
+    return userApi.updateUserInfo(userAttribute, value, localStorage.getItem("enablerT")).then(() => {
+      userApi.fetchCurrentUser({token: localStorage.getItem("enablerT")}).then(response => {
+        dispatch(userApi.updateUserInfoSuccess(response.user));
+      });
+    });
+  };
+}
+export function fetchCurrentUser() {
+  return function(dispatch) {
+    return userApi.fetchCurrentUser({token: localStorage.getItem("enablerT")}).then((response) => {
+      if (response.user) {
+        dispatch(userApi.fetchCurrentUserSuccess(response.user));
       } else {
-        dispatch(userApi.updateUserInfoError(userAttribute, value));
+        dispatch(userApi.fetchCurrentUserError());
       }
     });
   };

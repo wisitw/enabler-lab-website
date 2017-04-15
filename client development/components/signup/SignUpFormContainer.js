@@ -25,17 +25,15 @@ class SignUpFormContainer extends Component {
   }
 
   updateTextField(key, value) {
-    this.setState({
-      [key]: value
-    });
+    let newState = Object.assign({}, this.state);
+    newState.user[key] = value;
+    this.setState(newState);
   }
 
   handleError(key, error) {
     let newState = Object.assign({}, this.state);
     newState.error[key] = error;
-    this.setState({
-      newState
-    });
+    this.setState(newState);
   }
 
   handleSubmit(event) {
@@ -57,7 +55,7 @@ class SignUpFormContainer extends Component {
               <div className="form-group">
                 <label className="col-sm-4 control-label"></label>
                 <div className="col-sm-6">
-                  <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.firstName || this.state.error.lastName  || this.state.error.email  || this.state.error.password } >Add Project</button>
+                  <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.firstName || this.state.error.lastName  || this.state.error.email  || this.state.error.password } >Sign Up</button>
                 </div>
               </div>
             </form>

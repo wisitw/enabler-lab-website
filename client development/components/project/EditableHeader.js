@@ -1,45 +1,82 @@
 import React, {Component, PropTypes} from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as projectActions from '../../actions/projectActions';
 
 class EditableHeader extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      // value: this.props.project.projectName,
+      value: this.props.project.projectName,
+      hasEditPermission: this.props.project.hasEditPermission,
       isEditing: false,
       formClass: "",
       error: "",
     }
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEmptyValue = this.handleEmptyValue.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
+      value: nextProps.project.projectName,
+      hasEditPermission: nextProps.project.hasEditPermission,
       isEditing: false
     });
   }
 
-  componentWillMount() {
-    // TODO: call action here to load project, check if user can edit or not
-    setTimeout(() => {
-      this.setState({
-        value: "Project Title"
-      })
-    }, 1000);
-  }
-
   handleClick(event) {
-    //if (this.props.hasPermission) {
+    if (this.state.hasEditPermission) {
       this.setState({
         isEditing: true
       });
-    //}
+    }
+  }
+
+  handleChange(event) {
+    this.setState({
+      value: event.target.value
+    })
+  }
+
+  handleBlur(event) {
+    if (event.target.value == "") {
+      this.handleEmptyValue();
+    }
+  }
+
+  handleEmptyValue() {
+    const {
+      isRequired = false
+    } = this.props;
+
+    if (isRequired) {
+      this.setState({
+        error: "required",
+        formClass: "has-error"
+      })
+    } else {
+      this.setState({
+        error: "",
+        formClass: "has-success"
+      });
+    }
   }
 
   handleSubmit(event) {
     event.preventDefault();
+  }
+
+  handleCancel(event) {
+    event.preventDefault();
+    this.setState({
+      isEditing: false
+    });
   }
 
   render() {
@@ -47,11 +84,14 @@ class EditableHeader extends Component {
       <form className="form-horizontal">
         <div className={ "form-group " + this.state.formClass }>
           <div className="col-sm-10">
-            <input type="text" name="projectName" className="form-control" placeholder="Project Name" value={ this.state.value } onChange={ this.handleChange } required={ true }/>
+            <input type="text" name="projectName" className="form-control" placeholder="Project Name" value={ this.state.value } onChange={ this.handleChange } onBlur={ this.handleBlur } required={ true }/>
             <span className="help-block">{ this.state.error }</span>
           </div>
           <div className="col-sm-2">
-            <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error } >Save</button>
+            <div className="btn-toolbar">
+              <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error } >Save</button>
+              <button className="btn btn-danger" onClick={ this.handleCancel } >Cancel</button>
+            </div>
           </div>
         </div>
       </form>
@@ -71,11 +111,19 @@ class EditableHeader extends Component {
 
 EditableHeader.propTypes = {
   projectUrl: PropTypes.string.isRequired,
-  // project: PropTypes.object.isRequired,
-  hasPermission: PropTypes.bool.isRequired
-
+  project: PropTypes.object.isRequired
 }
 
-//TODO: get project object from store
+function mapStateToProps(state) {
+  return {
+    project: state.project
+  }
+}
 
-export default EditableHeader;
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(projectActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditableHeader);

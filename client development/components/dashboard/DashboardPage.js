@@ -1,14 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
-import UserForm from './UserForm';
+import UserFormContainer from './UserFormContainer';
 import UserProject from './UserProject'
 
 class DashBoardPage extends Component {
-  componentWillMount() {
-    if (!this.props.user.isSignedIn) {
-      browserHistory.push('/signin');
-    }
+  constructor(props) {
+    super(props);
   }
 
   render() {
@@ -17,7 +14,7 @@ class DashBoardPage extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 page-content">
-              <UserForm />
+              <UserFormContainer />
             </div>
             <div className="col-md-4 page-content">
               <UserProject />
@@ -33,7 +30,7 @@ DashBoardPage.propTypes = {
   user: PropTypes.object.isRequired
 }
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   return {
     user: state.user
   };

@@ -7,7 +7,7 @@ class EditableTextGroup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      [this.props.name]: this.props.user[this.props.name],
+      value: this.props.user[this.props.name],
       isEditing: false,
       formClass: "",
       error: "",
@@ -15,7 +15,9 @@ class EditableTextGroup extends Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEmptyValue = this.handleEmptyValue.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -31,19 +33,29 @@ class EditableTextGroup extends Component {
   }
 
   handleChange(event) {
+    this.setState({
+      value: event.target.value
+    })
+  }
+
+  handleBlur(event) {
+    if (event.target.value == "") {
+      this.handleEmptyValue();
+    }
+  }
+
+  handleEmptyValue() {
     const {
       isRequired = false
     } = this.props;
 
-    if (isRequired && event.target.value == "") {
-      return this.setState({
-        [this.props.name]: event.target.value,
+    if (isRequired) {
+      this.setState({
         error: "required",
         formClass: "has-error"
-      });
+      })
     } else {
-      return this.setState({
-        [this.props.name]: event.target.value,
+      this.setState({
         error: "",
         formClass: "has-success"
       });
@@ -52,19 +64,20 @@ class EditableTextGroup extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.actions.updateUser(this.props.name, this.state[this.props.name], this.props.user.token);
+    this.props.actions.updateUser(this.props.name, this.state.value);
   }
 
   render() {
     const {
       types = "text",
-      isRequired = false
+      isRequired = false,
+      isPassword = false
     } = this.props;
 
     const willDisplay = this.state.isEditing ? (
       <div>
         <div className="col-sm-6">
-          <input type={ types } name={ this.props.name } className="form-control" placeholder={ this.props.label } value={ this.state[this.props.name] } onChange={ this.handleChange } required={ isRequired }/>
+          <input type={ types } name={ this.props.name } className="form-control" placeholder={ this.props.label } value={ this.state.value } onChange={ this.handleChange } onBlur={ this.handleBlur } required={ isRequired }/>
           <span className="help-block">{ this.state.error }</span>
         </div>
         <div className="col-sm-2">
@@ -73,7 +86,7 @@ class EditableTextGroup extends Component {
       </div>
     ) : (
       <div className="col-sm-6">
-        <label className="control-label editable-text">{ this.state[this.props.name] }</label>
+        <label className="control-label editable-text">{ isPassword ? "***" : this.state.value } </label>
       </div>
     );
 
@@ -94,10 +107,11 @@ EditableTextGroup.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   types: PropTypes.string,
-  isRequired: PropTypes.bool
+  isRequired: PropTypes.bool,
+  isPassword: PropTypes.bool
 }
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   return {
     user: state.user
   };

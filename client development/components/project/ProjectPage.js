@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import EditableProjectSection from './EditableProjectSection';
+import * as projectActions from '../../actions/projectActions';
 
 class ProjectPage extends Component {
   constructor(props) {
@@ -11,12 +14,7 @@ class ProjectPage extends Component {
   }
 
   componentWillMount() {
-    // TODO: call action here to load project, check if user can edit or not
-    setTimeout(() => {
-      this.setState({
-        testState: "aaa"
-      })
-    }, 1000);
+    this.props.actions.fetchProject(this.props.params.projectUrl);
   }
 
   render() {
@@ -35,7 +33,22 @@ class ProjectPage extends Component {
 }
 
 ProjectPage.propTypes = {
+  actions: PropTypes.object.isRequired,
   params: PropTypes.object.isRequired
 }
 
-export default ProjectPage;
+
+function mapStateToProps(state) {
+  return {
+    project: state.project
+  };
+}
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(projectActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectPage);

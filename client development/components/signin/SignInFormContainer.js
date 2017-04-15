@@ -1,67 +1,100 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import SignInForm from './SignInForm';
+import { Link } from 'react-router';
+import TextFieldGroup from './TextFieldGroup';
 import * as userActions from '../../actions/userActions';
+import * as MessageSource from '../../resources/MessageSource';
 
 class SignInFormContainer extends Component {
   constructor(porps, context) {
     super(porps, context);
     this.state = {
-      email: this.props.email,
-      password: "",
-      signinError: this.props.signinError
+      user: this.props.user,
+      error: {
+
+      },
+      signInError: this.props.signInError
     };
-    this.updateFormState = this.updateFormState.bind(this);
-    this.checkFormError = this.checkFormError.bind(this);
+    this.updateTextField = this.updateTextField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleError = this.handleError.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      email: nextProps.email,
-      password: "",
-      signinError: nextProps.signinError
+      user: nextProps.user,
+      signInError: nextProps.signInError
     });
   }
 
-  updateFormState(event) {
-    const field = event.target.name;
-    const state = { ...this.state };
-    state[field] = event.target.value;
-    return this.setState(state);
+  updateTextField(key, value) {
+    let newState = Object.assign({}, this.state);
+    newState.user[key] = value;
+    this.setState(newState);
   }
 
-  checkFormError(event) {
-    const field = event.target.name;
-    const state = { ...this.state };
-    state[field + "Error"] = event.target.value == "" ? "required" : "";
-    return this.setState(state);
+  handleError(key, error) {
+    let newState = Object.assign({}, this.state);
+    newState.error[key] = error;
+    this.setState(newState);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.actions.signin({
-      email: this.state.email,
-      password: this.state.password
-    });
+    this.props.actions.signin(this.state.user);
   }
 
   render() {
     return (
-      <SignInForm formInfo={ this.state } onChange={ this.updateFormState } onBlur= { this.checkFormError } onSubmit={ this.handleSubmit } />
+      <div className="panel panel-default">
+        { 
+          this.state.signInError ? (
+            <div className="alert alert-danger">
+              <strong>Error!</strong> { MessageSource.getAuthenticationError() }
+            </div>
+          ) : "" 
+        }
+        <div className="panel-intro text-center">
+          <h2 className="logo-title">
+            <span className="logo-icon"><i className="icon icon-search-1 ln-shadow-logo shape-0"></i> </span> ENABLER<span>LAB </span>
+          </h2>
+        </div>
+        <div className="panel-body">
+          <form role="form">
+            <TextFieldGroup name="email" icon="icon-user fa" types="email" label="Email" onUpdate={ this.updateTextField } setError={ this.handleError } value={ this.state.user.email } isRequired={ true } />
+            <TextFieldGroup name="password" icon="icon-lock fa" types="password" label="Password" onUpdate={ this.updateTextField } setError={ this.handleError } isRequired={ true } />
+            <div className="form-group">
+              <label className="col-md-4 control-label"></label>
+              <div className="col-md-8">
+                <button className="btn btn-primary" onClick={ this.handleSubmit }>Sign In</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div className="panel-footer">
+          <p className="text-center pull-right"><Link to="/forgotpassword">Lost your password?</Link></p>
+          <div style={{clear: 'both'}}></div>
+        </div>
+      </div>
     );
   }
 }
 
 SignInFormContainer.propTypes = {
   actions: PropTypes.object.isRequired,
-  email: PropTypes.string.isRequired,
-  signinError: PropTypes.string
+  user: PropTypes.object.isRequired,
+  signInError: PropTypes.bool
 }
 
-function mapStateToProps(state, props) {
-  return state.user;
+function mapStateToProps(state) {
+  return {
+    user: {
+      email: state.user.email,
+      password: ""
+    },
+    signInError: state.user.signinError
+  };
 }
 
 function mapDispatchToProps(dispatch) {

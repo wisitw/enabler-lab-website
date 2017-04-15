@@ -1,17 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
+import React, { Component } from 'react';
 import AddProjectFormContainer from './AddProjectFormContainer'
 
 class AddProjectPage extends Component {
   constructor(props) {
     super(props);
-  }
-
-  componentWillMount() {
-    if (!this.props.user.isSignedIn) {
-      browserHistory.push('/signin');
-    }
   }
 
   render() {
@@ -54,14 +46,4 @@ class AddProjectPage extends Component {
   }
 }
 
-AddProjectPage.propTypes = {
-  user: PropTypes.object.isRequired
-}
-
-function mapStateToProps(state, props) {
-  return {
-    user: state.user
-  };
-}
-
-export default connect(mapStateToProps)(AddProjectPage);
+export default AddProjectPage;

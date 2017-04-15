@@ -2,6 +2,9 @@ import React, {Component, PropTypes} from 'react';
 import Editor from 'draft-js-editor';
 import {convertFromHTML, ContentState, EditorState} from 'draft-js';
 import {stateToHTML} from 'draft-js-export-html';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as projectActions from '../../actions/projectActions';
 
 class EditableDescription extends Component {
   constructor(props) {
@@ -11,7 +14,8 @@ class EditableDescription extends Component {
     const state = ContentState.createFromBlockArray(blocksFromHTML.contentBlocks, blocksFromHTML.entityMap);
 
     this.state = {
-      value: '',
+      value: this.props.project.projectDescription,
+      hasEditPermission: this.props.project.hasEditPermission,
       editorState: EditorState.createWithContent(state),
       isEditing: false,
       formClass: "",
@@ -22,24 +26,15 @@ class EditableDescription extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({isEditing: false});
-  }
-
-  componentWillMount() {
-    // TODO: call action here to load project, check if user can edit or not
-    setTimeout(() => {
-      const html = `<p>This is my first project</p>
-<ol>
-  <li>One</li>
-  <li>Two</li>
-  <li>Three</li>
-</ol>`;
-
-      this.setState({value: html})
-    }, 1000);
+    this.setState({
+      value: nextProps.project.projectDescription,
+      hasEditPermission: nextProps.project.hasEditPermission,
+      isEditing: false
+    });
   }
 
   handleChange(editorState) {
@@ -57,14 +52,15 @@ class EditableDescription extends Component {
   }
 
   handleClick(event) {
-    //if (this.props.hasPermission) {
-    const blocksFromHTML = convertFromHTML(this.state.value); // TODO GET FROM API
-    const state = ContentState.createFromBlockArray(blocksFromHTML.contentBlocks, blocksFromHTML.entityMap);
+    if (this.state.hasEditPermission) {
+      const blocksFromHTML = convertFromHTML(this.state.value);
+      const state = ContentState.createFromBlockArray(blocksFromHTML.contentBlocks, blocksFromHTML.entityMap);
 
-    this.setState({
-      isEditing: true,
-      editorState: EditorState.createWithContent(state)
-    });
+      this.setState({
+        isEditing: true,
+        editorState: EditorState.createWithContent(state)
+      });
+    }
   }
 
   handleSubmit(event) {
@@ -76,6 +72,13 @@ class EditableDescription extends Component {
         isEditing: false
       })
     }
+  }
+
+  handleCancel(event) {
+    event.preventDefault();
+    this.setState({
+      isEditing: false
+    });
   }
 
   render() {
@@ -98,7 +101,10 @@ class EditableDescription extends Component {
           <div className="form-group">
             <label className="col-sm-4 control-label"></label>
             <div className="col-sm-7">
-              <button className="btn btn-primary" onClick={ this.handleSubmit } >Save</button>
+              <div className="btn-toolbar">
+                <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error } >Save</button>
+                <button className="btn btn-danger" onClick={ this.handleCancel } >Cancel</button>
+              </div>
             </div>
           </div>
         </form>
@@ -119,11 +125,19 @@ class EditableDescription extends Component {
 
 EditableDescription.propTypes = {
   projectUrl: PropTypes.string.isRequired,
-  // project: PropTypes.object.isRequired,
-  hasPermission: PropTypes.bool.isRequired
-
+  project: PropTypes.object.isRequired
 }
 
-//TODO: get project object from store
+function mapStateToProps(state) {
+  return {
+    project: state.project
+  }
+}
 
-export default EditableDescription;
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(projectActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditableDescription);

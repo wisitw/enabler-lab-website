@@ -13,11 +13,11 @@ class Header extends Component {
 
   signout(event) {
     event.preventDefault();
-    this.props.actions.signout(this.props.user.token);
+    this.props.actions.signout();
   }
 
   render() {
-    const rightNav = this.props.user.isSignedIn ? (
+    const rightNav = (localStorage.getItem("enablerT") !== null) ? (
       <Nav pullRight>
         <NavItem eventKey={1}>
           <Link to="/project/add" activeClassName="active">Add Project</Link>

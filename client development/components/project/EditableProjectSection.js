@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import { connect } from 'react-redux';
 import EditableHeader from './EditableHeader';
 import EditableImagesContainer from './EditableImagesContainer';
 import EditableDescription from './EditableDescription';
@@ -9,15 +10,6 @@ class EditableProjectSection extends Component {
   }
 
   render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      autoplay: true,
-      slidesToShow: 3,
-      slidesToScroll: 1
-    };
-
     return (
       <div className="inner inner-box ads-details-wrapper">
         <EditableHeader projectUrl={this.props.projectUrl}/>
@@ -25,7 +17,7 @@ class EditableProjectSection extends Component {
           clear: 'both'
         }}></div>
         <span className="info-row">
-          by Kiki S.
+          { "by " + this.props.project.projectOwner.firstName + " " + this.props.project.projectOwner.lastName }
         </span>
 
         <div className="row">
@@ -48,7 +40,14 @@ class EditableProjectSection extends Component {
 }
 
 EditableProjectSection.propTypes = {
-  projectUrl: PropTypes.number.isRequired
+  projectUrl: PropTypes.number.isRequired,
+  project: PropTypes.object.isRequired
 };
 
-export default EditableProjectSection;
+function mapStateToProps(state) {
+  return {
+    project: state.project
+  }
+}
+
+export default connect(mapStateToProps)(EditableProjectSection);

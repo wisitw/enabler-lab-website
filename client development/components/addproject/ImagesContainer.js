@@ -17,6 +17,13 @@ class ImagesContainer extends Component {
     this.handleImageUrlChange = this.handleImageUrlChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      images: nextProps.value,
+      imageIndexCounter: (Object.keys(nextProps.value).length + 1)
+    });
+  }
+
   handleClick(event) {
     event.preventDefault();
     let newState = Object.assign({}, this.state);

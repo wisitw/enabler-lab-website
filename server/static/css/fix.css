@@ -25,6 +25,10 @@
   color: #888;
 }
 
+.highlight-item a {
+  color: #333;
+}
+
 .editable-text {
   font-weight: normal;
 }

@@ -6,14 +6,21 @@ export default function projectReducer(state = initialState.project, action) {
   switch(action.type) {
     case types.ADD_PROJECT_SUCCESS:
       browserHistory.push('/project/' + action.project.projectUrl);
-      return Object.assign({}, action.project);
+      return Object.assign({}, state, action.project);
+
     case types.ADD_PROJECT_ERROR:
-      return Object.assign({}, action.project);
+      return Object.assign({}, state);
+
     case types.FETCH_PROJECT_SUCCESS:
-      return Object.assign({}, action.project);
+      return Object.assign({}, state, action.project);
+
     case types.FETCH_PROJECT_ERROR:
-      browserHistory.push('/project/error' + action.project.projectUrl);
-      return Object.assign({}, {error: action.error});
+      browserHistory.push('/404');
+      return state;
+
+    case types.CLEAR_PROJECT:
+      return initialState.project;
+
     default:
       return state;
   }

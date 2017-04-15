@@ -1,8 +1,8 @@
 import * as projectApi from '../api/projectApi';
 
-export function addProject(project, token) {
+export function addProject(project) {
   return function(dispatch) {
-    return projectApi.addProject(project, token).then(response => {
+    return projectApi.addProject(project, localStorage.getItem("enablerT")).then(response => {
       if (response.success == true) {
         dispatch(projectApi.addProjectSuccess(project, response.project_id));
       } else {
@@ -18,10 +18,31 @@ export function addProject(project, token) {
 export function fetchProject(projectUrl) {
   return function(dispatch) {
     return projectApi.fetchProject(projectUrl).then(response => {
-      if (response.success == true) {
-        dispatch(projectApi.fetchProjectSuccess(project));
+      if (response.url) {
+        dispatch(projectApi.fetchProjectSuccess(response));
       } else {
-        dispatch(projectApi.fetchProjectError(project, response.error));
+        dispatch(projectApi.fetchProjectError());
+      }
+      return response;
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+export function clearProject() {
+  return function(dispatch) {
+    dispatch(projectApi.clearProject());
+  }
+}
+
+export function getMyProjects() {
+  return function(dispatch) {
+    return projectApi.getMyProjects({token: localStorage.getItem("enablerT")}).then(response => {
+      if (response) {
+        dispatch(projectApi.getMyProjectsSuccess(response));
+      } else {
+        dispatch(projectApi.getMyProjectsError());
       }
       return response;
     }).catch(error => {
