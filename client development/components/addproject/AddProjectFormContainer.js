@@ -11,18 +11,31 @@ class AddProjectFormContainer extends Component {
     super(props);
 
     this.state = {
-      project: this.props.project
+      project: this.props.project,
+      error: {
+
+      }
     };
 
     this.updateTextField = this.updateTextField.bind(this);
     this.updateTextDescription = this.updateTextDescription.bind(this);
     this.updateImages = this.updateImages.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUrlError = this.handleUrlError.bind(this);
   }
 
-  updateTextField(key, value) {
+  updateTextField(key, value, error="") {
     let newState = Object.assign({}, this.state);
     newState.project[key] = value;
+    newState.error[key] = error;
+    this.setState({
+      newState
+    });
+  }
+
+  handleUrlError(key, error) {
+    let newState = Object.assign({}, this.state);
+    newState.error[key] = error;
     this.setState({
       newState
     });
@@ -56,14 +69,14 @@ class AddProjectFormContainer extends Component {
         <div className="row">
           <div className="col-sm-12">
             <form className="form-horizontal">
-              <TextFieldGroup name="projectName" label="Project Name" value={ this.state.project.projectName } isRequired={true} onUpdate={ this.updateTextField } />
-              <TextFieldGroup name="projectUrl" label="Project URL" value={ this.state.project.projectUrl } isRequired={true} onUpdate={ this.updateTextField }/>
+              <TextFieldGroup name="projectName" label="Project Name" value={ this.state.project.projectName } isRequired={ true } onUpdate={ this.updateTextField } />
+              <TextFieldGroup name="projectUrl" label="Project URL" value={ this.state.project.projectUrl } isRequired={ true } onUpdate={ this.updateTextField } isUrl={ true } onUrlError={ this.handleUrlError } />
               <DescriptionContainer onUpdate={ this.updateTextDescription } value={ this.state.project.projectDescription } />
               <ImagesContainer onUpdate={ this.updateImages } value={ this.state.project.projectImages } />
               <div className="form-group">
                 <label className="col-sm-4 control-label"></label>
                 <div className="col-sm-6">
-                  <button className="btn btn-primary" onClick={ this.handleSubmit } >Add Project</button>
+                  <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.projectName || this.state.error.projectUrl } >Add Project</button>
                 </div>
               </div>
             </form>

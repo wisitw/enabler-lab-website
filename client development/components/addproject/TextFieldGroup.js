@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import * as projectApi from '../../api/projectApi'
 
 class TextFieldGroup extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class TextFieldGroup extends Component {
     }
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -24,11 +26,13 @@ class TextFieldGroup extends Component {
     } = this.props;
 
     if (isRequired && event.target.value == "") {
+      let error = "required";
       this.setState({
         [this.props.name]: event.target.value,
-        error: "required",
+        error: error,
         formClass: "has-error"
       });
+      this.props.onUpdate(this.props.name, event.target.value, error);
     } else {
       this.setState({
         [this.props.name]: event.target.value,
@@ -36,6 +40,26 @@ class TextFieldGroup extends Component {
         formClass: "has-success"
       });
       this.props.onUpdate(this.props.name, event.target.value);
+    }
+  }
+
+  handleBlur(event) {
+    if (this.props.isUrl) {
+      projectApi.isUrlAvailable(event.target.value).then(response => {
+        if (response.available) {
+          this.setState({
+            error: "",
+            formClass: "has-success"
+          });
+        } else {
+          let error = "This url is already in use";
+          this.setState({
+            error: error,
+            formClass: "has-error"
+          });
+          this.props.onUrlError(this.props.name, error);
+        }
+      })
     }
   }
 
@@ -49,7 +73,7 @@ class TextFieldGroup extends Component {
       <div className={ "form-group " + this.state.formClass }>
         <label className="col-sm-4 control-label">{ this.props.label }</label>
         <div className="col-sm-6">
-          <input type={ types } name={ this.props.name } className="form-control" placeholder={ this.props.label } value={ this.state[this.props.name] } onChange={ this.handleChange } required={ isRequired }/>
+          <input type={ types } name={ this.props.name } className="form-control" placeholder={ this.props.label } value={ this.state[this.props.name] } onChange={ this.handleChange } onBlur= { this.handleBlur } required={ isRequired }/>
           <span className="help-block">{ this.state.error }</span>
         </div>
       </div>
@@ -64,7 +88,8 @@ TextFieldGroup.propTypes = {
   value: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
   onUpdate: PropTypes.func.isRequired,
-  validate: PropTypes.func
+  isUrl: PropTypes.bool,
+  onUrlError: PropTypes.func
 }
 
 export default TextFieldGroup;
