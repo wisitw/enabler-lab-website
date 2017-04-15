@@ -3,7 +3,8 @@ import * as projectApi from '../api/projectApi';
 export function addProject(project) {
   return function(dispatch) {
     return projectApi.addProject(project, localStorage.getItem("enablerT")).then(response => {
-      if (response.success == true) {
+      console.log(response);
+      if (response) {
         dispatch(projectApi.addProjectSuccess(project, response.project_id));
       } else {
         dispatch(projectApi.addProjectError(project, response.error));
@@ -30,7 +31,7 @@ export function updateProject(id, attribute, value, projectUrl) {
 export function fetchProject(projectUrl) {
   return function(dispatch) {
     return projectApi.fetchProject(projectUrl).then(response => {
-      if (response.url) {
+      if (response) {
         dispatch(projectApi.fetchProjectSuccess(response));
       } else {
         dispatch(projectApi.fetchProjectError());
@@ -57,6 +58,16 @@ export function getMyProjects() {
         dispatch(projectApi.getMyProjectsError());
       }
       return response;
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+export function deleteProject(id) {
+  return function(dispatch) {
+    return projectApi.deleteProject(id, localStorage.getItem("enablerT")).then(() => {
+      dispatch(projectApi.deleteProjectSuccess());
     }).catch(error => {
       throw(error);
     });

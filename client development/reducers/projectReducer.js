@@ -24,6 +24,10 @@ export default function projectReducer(state = initialState.project, action) {
     case types.UPDATE_PROJECT_SUCCESS:
       return Object.assign({}, state, action.project);
 
+    case types.DELETE_PROJECT_SUCCESS:
+      browserHistory.push('/');
+      return initialState.project;
+
     default:
       return state;
   }

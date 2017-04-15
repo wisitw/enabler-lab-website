@@ -20,6 +20,7 @@ class EditableHeader extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEmptyValue = this.handleEmptyValue.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -80,6 +81,13 @@ class EditableHeader extends Component {
     });
   }
 
+  handleDelete(event) {
+    event.preventDefault();
+    if (window.confirm("Are you sure?")) {
+      this.props.actions.deleteProject(this.props.project.id);
+    }
+  }
+
   render() {
     const willDisplay = this.state.isEditing ? (
       <form className="form-horizontal">
@@ -97,8 +105,13 @@ class EditableHeader extends Component {
         </div>
       </form>
     ) : (
-      <h1 className="auto-heading" onClick={ this.handleClick }>
-        <span className="auto-title left">{ this.state.value }</span>
+      <h1 className="auto-heading">
+        <span className="auto-title left" onClick={ this.handleClick }>{ this.state.value }</span>
+        {
+          (this.state.hasEditPermission) ? (
+            <span className="auto-price pull-right" onClick={ this.handleDelete }>Delete Project</span>
+          ) : ""
+        }
       </h1>
     );
 

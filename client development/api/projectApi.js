@@ -272,3 +272,28 @@ export function updateProjectSuccess(project) {
   }
 }
 
+export function deleteProject(id, token) {
+  const formBody = rootApi.objectToBody({project_id: id, token: token});
+
+  const request = new Request(rootApi.rootEndPoint + 'deleteproject', {
+    method: 'POST',
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }),
+    body: formBody
+  });
+
+  return fetch(request).then(response => {
+    return response.json();
+  }).catch(error => {
+    return error;
+  });
+}
+
+export function deleteProjectSuccess() {
+  return {
+    type: types.DELETE_PROJECT_SUCCESS,
+    project: {}
+  }
+}

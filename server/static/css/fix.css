@@ -71,3 +71,35 @@
   padding-bottom: 48px;
 }
 
+.auto-price {
+  color: #E74C3C;
+}
+
+.footer {
+  position: static;
+  bottom: 0;
+  width: 100%;
+}
+
+.error-div {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background: white;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%
+}
+
+#footer-error {
+  position: fixed;
+  widows: 100%;
+  bottom: 0;
+}
+
