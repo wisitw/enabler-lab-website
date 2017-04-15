@@ -63,7 +63,8 @@ TextFieldGroup.propTypes = {
   types: PropTypes.string,
   value: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
-  onUpdate: PropTypes.func.isRequired
+  onUpdate: PropTypes.func.isRequired,
+  validate: PropTypes.func
 }
 
 export default TextFieldGroup;

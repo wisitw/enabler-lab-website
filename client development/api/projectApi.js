@@ -6,17 +6,33 @@ function projectToApiProject(project, token) {
     name: project.projectName,
     url: project.projectUrl,
     detail: project.projectDescription,
-    gallery: "[" + Object.keys(project.projectImages).map((key, index) => {
-        return project.projectImages[key] + ",";
-      }) + "]",
+    gallery: Object.keys(project.projectImages).map((key, index) => {
+        return project.projectImages[key];
+      }),
     token: token
   };
 }
 
+function objectToBodyWithGalleryArray(object) {
+  var formBody = [];
+  for (let property in object) {
+    if (property != "gallery") {
+      var encodedKey = encodeURIComponent(property);
+      var encodedValue = encodeURIComponent(object[property]);
+      formBody.push(encodedKey + "=" + encodedValue);
+    } else {
+      object.gallery.forEach(function(image) {
+        const imageKey = encodeURIComponent("gallery[]");
+        const encodedImage = encodeURIComponent(image);
+        formBody.push(imageKey + "=" + encodedImage);
+      });
+    }
+  }
+  return formBody.join("&");
+}
+
 export function addProject(project, token) {
-  console.log("2");
-  const formBody = rootApi.objectToBody(projectToApiProject(project, token));
-  console.log("3");
+  const formBody = objectToBodyWithGalleryArray(projectToApiProject(project, token));
 
   const request = new Request(rootApi.rootEndPoint + 'newproject', {
     method: 'POST',
@@ -34,10 +50,11 @@ export function addProject(project, token) {
   });
 }
 
-export function addProjectSuccess(project) {
+export function addProjectSuccess(project, id) {
   return {
     type: types.ADD_PROJECT_SUCCESS, 
-    project
+    project,
+    projectId: id
   }
 }
 
@@ -47,4 +64,23 @@ export function addProjectError(project, error) {
     project,
     error: error
   }
+}
+
+export function isUrlAvailable(url) {
+  const formBody = rootApi.objectToBody({url: url});
+
+  const request = new Request(rootApi.rootEndPoint + 'projectavailable', {
+    method: 'POST',
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }),
+    body: formBody
+  });
+
+  return fetch(request).then(response => {
+    return response.json();
+  }).catch(error => {
+    return error;
+  });
 }

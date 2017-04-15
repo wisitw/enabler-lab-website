@@ -8,9 +8,8 @@ class ImagesContainer extends Component {
     super(props);
 
     this.state = {
-      images: {
-      },
-      imageIndexCounter: 1
+      images: props.value,
+      imageIndexCounter: (Object.keys(props.value).length + 1)
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -90,6 +89,7 @@ class ImagesContainer extends Component {
 }
 
 ImagesContainer.propTypes = {
+  value: PropTypes.object.isRequired,
   onUpdate: PropTypes.func.isRequired
 }
 

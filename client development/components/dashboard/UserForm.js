@@ -25,7 +25,7 @@ class UserForm extends Component {
               </div>
             </form>
 
-            <EditableTextGroup name="password" label="Password" type="password" isRequired={true} />
+            <EditableTextGroup name="password" label="Password" types="password" isRequired={true} />
           </div>
         </div>
       </div>

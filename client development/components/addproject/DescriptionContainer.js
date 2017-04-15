@@ -1,14 +1,23 @@
 import React, { PropTypes } from 'react';
 import Editor from 'draft-js-editor';
+import { convertFromHTML, ContentState, EditorState } from 'draft-js';
 import { stateToHTML } from 'draft-js-export-html';
 
 
 class DescriptionContainer extends React.Component {
   constructor(props) {
     super(props);
+
+    const blocksFromHTML = convertFromHTML(props.value);
+    const state = ContentState.createFromBlockArray(
+      blocksFromHTML.contentBlocks,
+      blocksFromHTML.entityMap
+    );
+
     this.state = {
-      
+      editorState: EditorState.createWithContent(state),
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
   }
@@ -43,6 +52,7 @@ class DescriptionContainer extends React.Component {
 }
 
 DescriptionContainer.propTypes = {
+  value: PropTypes.string.isRequired,
   onUpdate: PropTypes.func.isRequired
 }
 

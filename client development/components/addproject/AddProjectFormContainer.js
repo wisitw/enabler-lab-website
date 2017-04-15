@@ -11,10 +11,7 @@ class AddProjectFormContainer extends Component {
     super(props);
 
     this.state = {
-      projectName: this.props.project.projectName,
-      projectUrl: this.props.project.projectUrl,
-      projectDescription: this.props.project.projectDescription,
-      projectImages: this.props.project.projectImages
+      project: this.props.project
     };
 
     this.updateTextField = this.updateTextField.bind(this);
@@ -24,26 +21,32 @@ class AddProjectFormContainer extends Component {
   }
 
   updateTextField(key, value) {
+    let newState = Object.assign({}, this.state);
+    newState.project[key] = value;
     this.setState({
-      [key]: value
+      newState
     });
   }
 
   updateTextDescription(htmlText) {
+    let newState = Object.assign({}, this.state);
+    newState.project.projectDescription = htmlText;
     this.setState({
-      projectDescription: htmlText
+      newState
     });
   }
 
   updateImages(images) {
+    let newState = Object.assign({}, this.state);
+    newState.project.projectImages = images;
     this.setState({
-      projectImages: images
+      newState
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.actions.addProject(this.state, this.props.user.token);
+    this.props.actions.addProject(this.state.project, this.props.user.token);
   }
 
   render() {
@@ -53,10 +56,10 @@ class AddProjectFormContainer extends Component {
         <div className="row">
           <div className="col-sm-12">
             <form className="form-horizontal">
-              <TextFieldGroup name="projectName" label="Project Name" value={ this.state.projectName } isRequired={true} onUpdate={ this.updateTextField } />
-              <TextFieldGroup name="projectUrl" label="Project URL" isRequired={true} onUpdate={ this.updateTextField }/>
-              <DescriptionContainer onUpdate={ this.updateTextDescription } />
-              <ImagesContainer onUpdate={ this.updateImages } />
+              <TextFieldGroup name="projectName" label="Project Name" value={ this.state.project.projectName } isRequired={true} onUpdate={ this.updateTextField } />
+              <TextFieldGroup name="projectUrl" label="Project URL" value={ this.state.project.projectUrl } isRequired={true} onUpdate={ this.updateTextField }/>
+              <DescriptionContainer onUpdate={ this.updateTextDescription } value={ this.state.project.projectDescription } />
+              <ImagesContainer onUpdate={ this.updateImages } value={ this.state.project.projectImages } />
               <div className="form-group">
                 <label className="col-sm-4 control-label"></label>
                 <div className="col-sm-6">
