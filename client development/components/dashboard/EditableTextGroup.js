@@ -31,7 +31,11 @@ class EditableTextGroup extends Component {
   }
 
   handleChange(event) {
-    if (event.target.value == "") {
+    const {
+      isRequired = false
+    } = this.props;
+
+    if (isRequired && event.target.value == "") {
       return this.setState({
         [this.props.name]: event.target.value,
         error: "required",

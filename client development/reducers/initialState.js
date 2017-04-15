@@ -4,5 +4,13 @@ export default {
     lastName: "",
     email: "",
     password: ""
+  },
+  project: {
+    projectName: "",
+    projectUrl: "",
+    projectDescription: "",
+    projectImages: {
+      
+    }
   }
 }

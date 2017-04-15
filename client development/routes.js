@@ -6,6 +6,8 @@ import SignUpPage from './components/signup/SignUpPage';
 import SignInPage from './components/signin/SignInPage';
 import AboutUsPage from './components/aboutus/AboutUsPage';
 import DashboardPage from './components/dashboard/DashboardPage';
+import AddProjectPage from './components/addproject/AddProjectPage';
+import ProjectPage from './components/project/ProjectPage'
 
 export default (
   <Route path="/" component={ App }>
@@ -14,5 +16,7 @@ export default (
     <Route path="/signin" component={ SignInPage } />
     <Route path="/aboutus" component={ AboutUsPage } />
     <Route path="/dashboard" component={ DashboardPage } />
+    <Route path="/project/add" component={ AddProjectPage } />
+    <Route path="/project/:id" component={ ProjectPage } />
   </Route>
 );

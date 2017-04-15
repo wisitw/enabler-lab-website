@@ -35,3 +35,35 @@
   padding-bottom: 36px;
 }
 
+.wysiwyg-editor {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.wysiwyg-editor ul li {
+  margin-left: 16px;
+  list-style: disc;
+}
+
+.wysiwyg-editor ol li {
+  margin-left: 16px;
+  list-style: decimal;
+}
+
+.wysiwyg-display ul li {
+  margin-left: 16px;
+  list-style: disc;
+}
+
+.wysiwyg-display ol li {
+  margin-left: 16px;
+  list-style: decimal;
+}
+
+.project-image-preview {
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-bottom: 48px;
+}
+

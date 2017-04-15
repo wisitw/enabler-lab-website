@@ -12,7 +12,7 @@ const AboutUsPage = () => {
           <div className="dtable hw100">
             <div className="dtable-cell hw100">
               <div className="container text-center">
-                <h1 className="intro-title animated fadeInDown"> Building a customer focus </h1>
+                <h1 className="intro-title animated fadeInDown"> ENABLER LAB </h1>
               </div>
             </div>
           </div>
@@ -23,24 +23,19 @@ const AboutUsPage = () => {
         <div className="container">
           <div className="section-content">
             <div className="row ">
-              <h1 className="text-center title-1"> What Makes Us Special </h1>
+              <h1 className="text-center title-1"> เพื่อเติมเต็มสิ่งที่ขาดหายไปจากชีวิต </h1>
               <hr className="center-block small text-hr" />
               <div className="col-sm-6">
                 <div className="text-content has-lead-para text-left">
-                  <p className="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                    consectetur sit amet ante nec vulputate. Nulla aliquam, justo auctor consequat
-                    tincidunt, arcu erat mattis lorem, lacinia lacinia dui enim at eros. Pellentesque ut
-                    gravida augue. Duis ac dictum tellus </p>
-                  <p className="lead"> Pellentesque in mauris placerat, porttitor lorem id, ornare nisl.
-                    Pellentesque rhoncus convallis felis, in egestas libero. Donec et nibh dapibus, sodales
-                    nisi quis, fringilla augue. Donec dui quam, egestas in varius ut, tincidunt quis ipsum.
-                    Nulla nec odio eu nisi imperdiet dictum. </p>
-                  <p className="lead"> Curabitur sed leo dictum, convallis lorem eu, suscipit mi. Mauris viverra
-                    blandit varius. Proin non sem turpis. Etiam fringilla hendrerit nunc at accumsan. Duis
-                    mollis auctor lobortis. </p>
-                  <p className="lead"> Etiam elementum nulla non erat blandit, sed porttitor urna malesuada. Cras
-                    euismod a nulla sed ornare. Vestibulum id molestie nulla. Phasellus sodales, sapien
-                    vitae auctor rhoncus </p>
+                  <p className="lead">
+                    ในปัจจุบัน ผู้สูงอายุ และผู้พิการ สามารถดำเนินชีวิตได้โดยปกติและลดอุปสรรคในการประกอบกิจกรรมต่าง ๆ ให้เหลือน้อยที่สุดเท่าที่จะเป็นไปได้ ด้วยความก้าวหน้าของเทคโนโลยี
+                  </p>
+                  <p className="lead">
+                    <strong>Enabler Lab</strong> เป็นกลุ่มคนที่มีเป้าหมายอย่างชัดเจนคือการ "เติมเต็มชีวิตของผู้สูงอายุ และผู้พิการ" เราวางจุดประสงค์ของทุกนวัตกรรมที่สรรค์สร้างคือการ "ลดอุปสรรคในการดำเนินชีวิตประจำวันของพวกเขาให้เหลือน้อยที่สุดเท่าที่จะเป็นไปได้"
+                  </p>
+                  <p className="lead">
+                    เราหวังที่จะให้คุณภาพชีวิตของผู้ใช้บริการของเราถูกยกระดับสูงยิ่งขึ้น ด้วยราคาที่จับต้องได้ และคุณภาพการใช้งานที่ตอบโจทย์ความประสงค์ ซึ่งทั้งหมดล้วนคือความสุขของท่านและคือความสุขของเรา
+                  </p>
                 </div>
               </div>
               <div className="col-sm-6">

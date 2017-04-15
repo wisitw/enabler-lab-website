@@ -8,8 +8,9 @@ const Footer = () => {
       <div className="container">
         <ul className="pull-left navbar-link footer-nav">
           <li>
-            <Link to="/"  activeClassName="active">Home</Link>
-            <Link to="/aboutus"  activeClassName="active">About Us</Link>
+            <Link to="/" activeClassName="active">Home</Link>
+            <Link to="/aboutus" activeClassName="active">About Us</Link>
+            <Link to="/founder" activeClassName="active">Founder Team</Link>
           </li>
         </ul>
         <ul className="pull-right navbar-link footer-nav">

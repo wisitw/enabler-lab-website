@@ -17,6 +17,10 @@ server.use('/', (request, response) => {
   response.sendFile(path.join(__dirname, STATIC_PATH, 'index.html'));
 })
 
+server.use('project/', (request, response) => {
+  response.sendFile(path.join(__dirname, STATIC_PATH, 'index.html'));
+})
+
 server.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
 })
