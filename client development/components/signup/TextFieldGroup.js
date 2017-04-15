@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import * as MessageSource from '../../resources/MessageSource';
-import * as projectApi from '../../api/projectApi';
+import * as userApi from '../../api/userApi';
 
 class TextFieldGroup extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class TextFieldGroup extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
     this.handleEmptyValue = this.handleEmptyValue.bind(this);
-    this.handleUrlValue = this.handleUrlValue.bind(this);
+    this.handleEmailValue = this.handleEmailValue.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -31,8 +31,8 @@ class TextFieldGroup extends Component {
     if (event.target.value == "") {
       this.handleEmptyValue();
     } else {
-      if (this.props.isUrl) {
-        this.handleUrlValue(event.target.value);
+      if (this.props.isEmail) {
+        this.handleEmailValue(event.target.value);
       } else {
         this.props.setError(this.props.name, false);
         this.setState({
@@ -63,8 +63,8 @@ class TextFieldGroup extends Component {
     }
   }
 
-  handleUrlValue(url) {
-    projectApi.isUrlAvailable(url).then(response => {
+  handleEmailValue(url) {
+    userApi.isEmailAvailable(url).then(response => {
       if (response.available) {
         this.props.setError(this.props.name, false);
         this.setState({
@@ -74,7 +74,7 @@ class TextFieldGroup extends Component {
       } else {
         this.props.setError(this.props.name, true);
         this.setState({
-          error: MessageSource.getNotAvailableError("url"),
+          error: MessageSource.getNotAvailableError("email"),
           formClass: "has-error"
         });
       }
@@ -106,7 +106,7 @@ TextFieldGroup.propTypes = {
   value: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
   onUpdate: PropTypes.func.isRequired,
-  isUrl: PropTypes.bool,
+  isEmail: PropTypes.bool,
   setError: PropTypes.func
 }
 

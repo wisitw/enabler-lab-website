@@ -24,12 +24,15 @@ class AddProjectFormContainer extends Component {
     this.handleUrlError = this.handleUrlError.bind(this);
   }
 
-  updateTextField(key, value, error="") {
-    let newState = Object.assign({}, this.state);
-    newState.project[key] = value;
-    newState.error[key] = error;
+  componentWillReceiveProps(nextProps) {
     this.setState({
-      newState
+      project: nextProps.project
+    });
+  }
+
+  updateTextField(key, value) {
+    this.setState({
+      [key]: value
     });
   }
 
@@ -69,8 +72,8 @@ class AddProjectFormContainer extends Component {
         <div className="row">
           <div className="col-sm-12">
             <form className="form-horizontal">
-              <TextFieldGroup name="projectName" label="Project Name" value={ this.state.project.projectName } isRequired={ true } onUpdate={ this.updateTextField } />
-              <TextFieldGroup name="projectUrl" label="Project URL" value={ this.state.project.projectUrl } isRequired={ true } onUpdate={ this.updateTextField } isUrl={ true } onUrlError={ this.handleUrlError } />
+              <TextFieldGroup name="projectName" label="Project Name" value={ this.state.project.projectName } isRequired={ true } onUpdate={ this.updateTextField } setError={ this.handleUrlError }  />
+              <TextFieldGroup name="projectUrl" label="Project URL" value={ this.state.project.projectUrl } isRequired={ true } onUpdate={ this.updateTextField } isUrl={ true } setError={ this.handleUrlError } />
               <DescriptionContainer onUpdate={ this.updateTextDescription } value={ this.state.project.projectDescription } />
               <ImagesContainer onUpdate={ this.updateImages } value={ this.state.project.projectImages } />
               <div className="form-group">
@@ -93,7 +96,7 @@ AddProjectFormContainer.propTypes = {
   project: PropTypes.object.isRequired
 }
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   return {
     user: state.user,
     project: state.project

@@ -80,23 +80,32 @@ export function signup(user) {
   });
 }
 
-export function validateEmail(email) {
-  const formBody = rootApi.objectToBody(email);
+export function isEmailAvailable(email) {
+  var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (emailRegEx.test(email)) {
+    const formBody = rootApi.objectToBody(email);
 
-  const request = new Request(rootApi.rootEndPoint + 'emailavailable', {
-    method: 'POST',
-    headers: new Headers({
-      'Accept': 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }),
-    body: formBody
-  });
+    const request = new Request(rootApi.rootEndPoint + 'emailavailable', {
+      method: 'POST',
+      headers: new Headers({
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }),
+      body: formBody
+    });
 
-  return fetch(request).then(response => {
-    return response.json();
-  }).catch(error => {
-    return error;
-  });
+    return fetch(request).then(response => {
+      return response.json();
+    }).catch(error => {
+      return error;
+    });
+  } else {
+    return new Promise(function(resolve, reject) {
+      return resolve({
+        available: false
+      });
+    });
+  }
 }
 
 export function signin(user) {

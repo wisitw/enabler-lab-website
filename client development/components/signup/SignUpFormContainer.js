@@ -1,95 +1,82 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import SignUpForm from './SignUpForm';
+import TextFieldGroup from './TextFieldGroup';
 import * as userActions from '../../actions/userActions';
-import * as userApi from '../../api/userApi';
 
 class SignUpFormContainer extends Component {
   constructor(porps, context) {
     super(porps, context);
     this.state = {
-      firstName: this.props.firstName,
-      lastName: this.props.lastName,
-      email: this.props.email,
-      password: ""
+      user: this.props.user,
+      error: {
+
+      }
     };
-    this.updateFormState = this.updateFormState.bind(this);
-    this.checkFormError = this.checkFormError.bind(this);
+    this.updateTextField = this.updateTextField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleError = this.handleError.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      firstName: nextProps.firstName,
-      lastName: nextProps.lastName,
-      email: nextProps.email,
-      password: ""
+      user: nextProps.user
     });
   }
 
-  updateFormState(event) {
-    const field = event.target.name;
-    const state = { ...this.state };
-    state[field] = event.target.value;
-    return this.setState(state);
+  updateTextField(key, value) {
+    this.setState({
+      [key]: value
+    });
   }
 
-  checkFormError(event) {
-    const field = event.target.name;
-    const state = { ...this.state };
-    state[field + "Error"] = event.target.value == "" ? "required" : "";
-
-    if (field == "email" && event.target.value != "") {
-      var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if (emailRegEx.test(event.target.value)) {    
-        userApi.validateEmail({email: event.target.value}).then(response => {
-          if (!response.available) {
-            state["emailError"] = "This email is already in use"
-          } else {
-            state["emailError"] = "";
-          }
-          return this.setState(state);
-        })
-      } else {
-        state["emailError"] = "This email is not valid"
-        return this.setState(state);
-      }
-    } else {
-      return this.setState(state);
-    }
+  handleError(key, error) {
+    let newState = Object.assign({}, this.state);
+    newState.error[key] = error;
+    this.setState({
+      newState
+    });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.actions.signup({
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      password: this.state.password
-    });
+    this.props.actions.signup(this.state.user);
   }
 
   render() {
     return (
-      <SignUpForm formInfo={ this.state } onChange={ this.updateFormState } onBlur= { this.checkFormError } onSubmit={ this.handleSubmit } />
+      <div className="inner-box category-content">
+        <h2 className="title-2"><i className="icon-user-add"></i> Create your account, Its free </h2>
+        <div className="row">
+          <div className="col-sm-12">
+            <form className="form-horizontal">
+              <TextFieldGroup name="firstName" label="First Name" value={ this.state.user.firstName } isRequired={ true } onUpdate={ this.updateTextField } setError={ this.handleError } />
+              <TextFieldGroup name="lastName" label="Last Name" value={ this.state.user.lastName } isRequired={ true } onUpdate={ this.updateTextField } setError={ this.handleError } />
+              <TextFieldGroup name="email" types="email" label="Email" value={ this.state.user.email } isRequired={ true } onUpdate={ this.updateTextField } isEmail={ true } setError={ this.handleError } />
+              <TextFieldGroup name="password" types="password" label="Password" value={ this.state.user.password } isRequired={ true } onUpdate={ this.updateTextField } setError={ this.handleError }  />
+              <div className="form-group">
+                <label className="col-sm-4 control-label"></label>
+                <div className="col-sm-6">
+                  <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.firstName || this.state.error.lastName  || this.state.error.email  || this.state.error.password } >Add Project</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
 SignUpFormContainer.propTypes = {
   actions: PropTypes.object.isRequired,
-  firstName: PropTypes.string.isRequired,
-  lastName: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  firstNameError: PropTypes.string,
-  lastNameError: PropTypes.string,
-  emailError: PropTypes.string,
-  passwordError: PropTypes.string
+  user: PropTypes.object.isRequired
 }
 
-function mapStateToProps(state, props) {
-  return state.user;
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  };
 }
 
 function mapDispatchToProps(dispatch) {
