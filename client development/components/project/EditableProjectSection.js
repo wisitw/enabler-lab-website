@@ -20,7 +20,7 @@ class EditableProjectSection extends Component {
 
     return (
       <div className="inner inner-box ads-details-wrapper">
-        <EditableHeader projectId={this.props.projectId}/>
+        <EditableHeader projectUrl={this.props.projectUrl}/>
         <div style={{
           clear: 'both'
         }}></div>
@@ -30,14 +30,15 @@ class EditableProjectSection extends Component {
 
         <div className="row">
           <div className="col-md-12">
-            <EditableImagesContainer projectId={this.props.projectId}/>
+            <EditableImagesContainer projectUrl={this.props.projectUrl}/>
           </div>
         </div>
+        <h5 className="list-title"><strong></strong></h5>
 
         <div className="Ads-Details">
           <div className="row">
             <div className="ads-details-info col-md-12" style={{paddingBottom: '16px'}} >
-              <EditableDescription projectId={this.props.projectId}/>
+              <EditableDescription projectUrl={this.props.projectUrl}/>
             </div>
           </div>
         </div>
@@ -47,7 +48,7 @@ class EditableProjectSection extends Component {
 }
 
 EditableProjectSection.propTypes = {
-  projectId: PropTypes.number.isRequired
+  projectUrl: PropTypes.number.isRequired
 };
 
 export default EditableProjectSection;

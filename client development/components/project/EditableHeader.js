@@ -70,7 +70,7 @@ class EditableHeader extends Component {
 }
 
 EditableHeader.propTypes = {
-  projectId: PropTypes.number.isRequired,
+  projectUrl: PropTypes.string.isRequired,
   // project: PropTypes.object.isRequired,
   hasPermission: PropTypes.bool.isRequired
 

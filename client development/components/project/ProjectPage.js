@@ -25,7 +25,7 @@ class ProjectPage extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12 page-content">
-              <EditableProjectSection projectId={ this.props.params.id } />
+              <EditableProjectSection projectUrl={ this.props.params.projectUrl } />
             </div>
           </div>
         </div>

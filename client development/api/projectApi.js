@@ -84,3 +84,37 @@ export function isUrlAvailable(url) {
     return error;
   });
 }
+
+export function fetchProject(projectUrl) {
+  const formBody = rootApi.objectToBody({url: projectUrl});
+
+  const request = new Request(rootApi.rootEndPoint + 'TODO', {
+    method: 'POST',
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }),
+    body: formBody
+  });
+
+  return fetch(request).then(response => {
+    return response.json();
+  }).catch(error => {
+    return error;
+  });
+}
+
+export function fetchProjectSuccess(project) {
+  return {
+    type: types.FETCH_PROJECT_SUCCESS, 
+    project
+  }
+}
+
+export function fetchProjectError(project, error) {
+  return {
+    type: types.FETCH_PROJECT_ERROR, 
+    project,
+    error: error
+  }
+}

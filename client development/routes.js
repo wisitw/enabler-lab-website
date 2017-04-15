@@ -17,6 +17,6 @@ export default (
     <Route path="/aboutus" component={ AboutUsPage } />
     <Route path="/dashboard" component={ DashboardPage } />
     <Route path="/project/add" component={ AddProjectPage } />
-    <Route path="/project/:id" component={ ProjectPage } />
+    <Route path="/project/:projectUrl" component={ ProjectPage } />
   </Route>
 );

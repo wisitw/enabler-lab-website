@@ -24,6 +24,7 @@ class EditableImagesContainer extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.removeImage = this.removeImage.bind(this);
     this.handleImageUrlChange = this.handleImageUrlChange.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -76,6 +77,13 @@ class EditableImagesContainer extends Component {
     event.preventDefault();
   }
 
+  handleCancel(event) {
+    event.preventDefault();
+    this.setState({
+      isEditing: false
+    });
+  }
+
   render() {
     const settings = {
       dots: true,
@@ -99,13 +107,11 @@ class EditableImagesContainer extends Component {
                   )
                 })
               }
-              <button className="btn btn-primary" onClick={ this.handleAddClick } >Add Image</button>
-            </div>
-          </div>
-          <div className="form-group">
-            <label className="col-sm-4 control-label"></label>
-            <div className="col-sm-7">
-              <button className="btn btn-primary" onClick={ this.handleSubmit } >Save</button>
+              <div className="btn-toolbar">
+                <button className="btn btn-primary" onClick={ this.handleAddClick } >Add Image</button>
+                <button className="btn btn-primary" onClick={ this.handleSubmit } >Save</button>
+                <button className="btn btn-danger" onClick={ this.handleCancel } >Cancel</button>
+              </div>
             </div>
           </div>
         </form>
@@ -140,7 +146,7 @@ class EditableImagesContainer extends Component {
 }
 
 EditableImagesContainer.propTypes = {
-  projectId: PropTypes.number.isRequired,
+  projectUrl: PropTypes.string.isRequired,
   // project: PropTypes.object.isRequired,
   hasPermission: PropTypes.bool.isRequired
 }

@@ -14,3 +14,18 @@ export function addProject(project, token) {
     });
   };
 }
+
+export function fetchProject(projectUrl) {
+  return function(dispatch) {
+    return projectApi.fetchProject(projectUrl).then(response => {
+      if (response.success == true) {
+        dispatch(projectApi.fetchProjectSuccess(project));
+      } else {
+        dispatch(projectApi.fetchProjectError(project, response.error));
+      }
+      return response;
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
