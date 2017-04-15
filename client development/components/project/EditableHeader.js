@@ -70,6 +70,7 @@ class EditableHeader extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.actions.updateProject(this.props.project.id, "projectName", this.state.value, this.props.projectUrl);
   }
 
   handleCancel(event) {
@@ -110,6 +111,7 @@ class EditableHeader extends Component {
 }
 
 EditableHeader.propTypes = {
+  actions: PropTypes.object.isRequired,
   projectUrl: PropTypes.string.isRequired,
   project: PropTypes.object.isRequired
 }

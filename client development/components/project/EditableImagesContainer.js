@@ -66,6 +66,7 @@ class EditableImagesContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.actions.updateProject(this.props.project.id, "projectImages", this.state.images, this.props.projectUrl);
   }
 
   handleCancel(event) {
@@ -128,7 +129,7 @@ class EditableImagesContainer extends Component {
             ) : "no image.." }
           </div>
         </div>
-        <div class="row">
+        <div className="row">
           { willDisplay }
         </div>
       </div>
@@ -137,6 +138,7 @@ class EditableImagesContainer extends Component {
 }
 
 EditableImagesContainer.propTypes = {
+  actions: PropTypes.object.isRequired,
   projectUrl: PropTypes.string.isRequired,
   project: PropTypes.object.isRequired
 }

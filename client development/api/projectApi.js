@@ -27,6 +27,7 @@ function photoArrayToObject(array) {
 
 function apiProjectToProject(apiProject) {
   return {
+    id: apiProject.project_id,
     projectName: apiProject.name,
     projectUrl: apiProject.url,
     projectDescription: apiProject.detail,
@@ -82,6 +83,37 @@ function objectToBodyWithGalleryArray(object) {
     }
   }
   return formBody.join("&");
+}
+
+function projectAttributeToApiProjectAttribute(id, attribute, value, token) {
+  switch (attribute) {
+    case 'projectName':
+      return {
+        project_id: id,
+        name: value,
+        token: token
+      }
+    case 'projectDescription':
+      return {
+        project_id: id,
+        detail: value,
+        token: token
+      }
+    case 'projectImages':
+      return {
+        project_id: id,
+        gallery: Object.keys(value).map((key, index) => {
+          return value[key];
+        }),
+        token: token
+      }
+    default:
+      return {
+        project_id: id,
+        [attribute]: value,
+        token: token
+      };
+  }
 }
 
 export function addProject(project, token) {
@@ -213,3 +245,30 @@ export function getMyProjectsError() {
     projects: {}
   }
 }
+
+export function updateProject(id, attribute, value, token) {
+  const formBody = objectToBodyWithGalleryArray(projectAttributeToApiProjectAttribute(id, attribute, value, token));
+
+  const request = new Request(rootApi.rootEndPoint + 'editproject', {
+    method: 'POST',
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }),
+    body: formBody
+  });
+
+  return fetch(request).then(response => {
+    return response.json();
+  }).catch(error => {
+    return error;
+  });
+}
+
+export function updateProjectSuccess(project) {
+  return {
+    type: types.UPDATE_PROJECT_SUCCESS, 
+    project: apiProjectToProject(project)
+  }
+}
+

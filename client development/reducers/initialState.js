@@ -7,6 +7,7 @@ export default {
   },
 
   project: {
+    id: "",
     projectName: "",
     projectUrl: "",
     projectDescription: "",

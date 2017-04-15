@@ -21,6 +21,9 @@ export default function projectReducer(state = initialState.project, action) {
     case types.CLEAR_PROJECT:
       return initialState.project;
 
+    case types.UPDATE_PROJECT_SUCCESS:
+      return Object.assign({}, state, action.project);
+
     default:
       return state;
   }

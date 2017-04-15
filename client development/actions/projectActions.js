@@ -15,6 +15,18 @@ export function addProject(project) {
   };
 }
 
+export function updateProject(id, attribute, value, projectUrl) {
+  return function(dispatch) {
+    return projectApi.updateProject(id, attribute, value, localStorage.getItem("enablerT")).then(() => {
+      projectApi.fetchProject(projectUrl).then(response => {
+        dispatch(projectApi.updateProjectSuccess(response));
+      })
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
 export function fetchProject(projectUrl) {
   return function(dispatch) {
     return projectApi.fetchProject(projectUrl).then(response => {

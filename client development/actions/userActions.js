@@ -50,6 +50,7 @@ export function updateUser(userAttribute, value) {
     });
   };
 }
+
 export function fetchCurrentUser() {
   return function(dispatch) {
     return userApi.fetchCurrentUser({token: localStorage.getItem("enablerT")}).then((response) => {

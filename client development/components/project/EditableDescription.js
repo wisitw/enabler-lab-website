@@ -70,7 +70,8 @@ class EditableDescription extends Component {
       this.setState({
         value: raw,
         isEditing: false
-      })
+      });
+      this.props.actions.updateProject(this.props.project.id, "projectDescription", raw, this.props.projectUrl);
     }
   }
 
@@ -124,6 +125,7 @@ class EditableDescription extends Component {
 }
 
 EditableDescription.propTypes = {
+  actions: PropTypes.object.isRequired,
   projectUrl: PropTypes.string.isRequired,
   project: PropTypes.object.isRequired
 }
