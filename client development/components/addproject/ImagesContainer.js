@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Slider from 'react-slick'
+import Slider from 'react-slick';
 import ImageContainer from './ImageContainer';
 import ImagePreview from './ImagePreview';
 

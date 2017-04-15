@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import EditableProjectSection from './EditableProjectSection';
 
 class ProjectPage extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class ProjectPage extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12 page-content">
-              { this.props.params.id + " " + this.state.testState }
+              <EditableProjectSection projectId={ this.props.params.id } />
             </div>
           </div>
         </div>
