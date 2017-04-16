@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors','On');
 header('Access-Control-Allow-Origin: *');
 
 $servername = "localhost";
@@ -188,7 +190,7 @@ if($method == 'POST' && $path == 'signup') {
 } else if($method == 'POST' && $path == 'projectinfo') {
 	vlog("\n\nPOST /projectinfo");
 	$data = clean($_POST);
-	$sql = "SELECT ID, name, url, detail, gallery, user_id FROM projects WHERE url = '".$data['url']."' LIMIT 1;";
+	$sql = "SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = '".$data['url']."' LIMIT 1;";
 	vlog($sql);
 	$result = $db->query($sql);	
 	if ($result->num_rows > 0) { 
@@ -213,6 +215,7 @@ if($method == 'POST' && $path == 'signup') {
 				'name' => $p['name'],
 				'url' => $p['url'],
 				'detail' => $p['detail'],
+				'view' => $p['hit'],
 				'owner' => $owner,
 				'gallery' => json_decode($p['gallery'])
 			]);
@@ -245,7 +248,32 @@ if($method == 'POST' && $path == 'signup') {
 			}
 			$sql = "UPDATE projects SET ".implode(",",$q)." WHERE ID = '".$data["project_id"]."' AND user_id = ".$u['ID'].";";
 			vlog($sql);
-			$result = $db->query($sql);	
+			$db->query($sql);	
+			if ($db->affected_rows) {
+				$t = true;
+			}
+			echo json_encode(['success' => $t]);
+		} 
+	} else {
+		vlog("USER NOT FOUND");
+		http_response_code(401);
+	}
+
+	
+// ===== Delete Project
+} else if($method == 'POST' && $path == 'deleteproject') {
+	vlog("\n\nPOST /deleteproject");
+	$data = clean($_POST);
+	$sql = "SELECT ID, token FROM users WHERE token = '".$data['token']."' LIMIT 1;";
+	vlog($sql);
+	$result = $db->query($sql);	
+	$t = false;
+	if ($result->num_rows > 0) { 
+		while($u = $result->fetch_assoc()) {
+			vlog("USER FOUND, DELETING PROJECT");
+			$sql = "DELETE FROM projects WHERE ID = ".$data["project_id"]." AND user_id = ".$u['ID'].";";
+			vlog($sql);
+			$db->query($sql);	
 			if ($db->affected_rows) {
 				$t = true;
 			}
@@ -284,6 +312,7 @@ if($method == 'POST' && $path == 'signup') {
 						'project_id' => $p['ID'],
 						'name' => $p['name'],
 						'url' => $p['url'],
+						'view' => $p['hit'],
 						'detail' => $p['detail'],
 						'owner' => $owner,
 						'gallery' => json_decode($p['gallery'])
@@ -299,6 +328,93 @@ if($method == 'POST' && $path == 'signup') {
 		vlog("USER NOT FOUND 401");
 		http_response_code(401);
 	}
+
+// ===== Search Projects
+} else if($method == 'POST' && $path == 'searchprojects') {
+	vlog("\n\nPOST /searchprojects");
+	$data = clean($_POST);
+	$sql = "SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%".$data['keyword']."%';";
+	vlog($sql);	
+	$result2 = $db->query($sql);		
+	if ($result2->num_rows > 0) {
+		vlog("FOUND ".$result2->num_rows);
+		$url = [];
+		while($p = $result2->fetch_assoc()) {
+			$url[] = [
+				'project_id' => $p['ID'],
+				'name' => $p['name'],
+				'url' => $p['url'],
+				'view' => $p['hit'],
+				'owner' => [
+					'ID' => $p['uid'],
+					'email' => $p['email'],
+					'fname' => $p['fname'],
+					'lname' => $p['lname']
+				],
+				'gallery' => json_decode($p['gallery'])
+			];
+		}
+		echo json_encode($url);
+	} else {
+		vlog("NO MATCH");
+		echo json_encode([]);
+	}
+
+// ===== Adv Search Projects
+} else if($method == 'POST' && $path == 'advancesearch') {
+	vlog("\n\nPOST /advancesearch");
+	$data = clean($_POST);
+	$order = (@$data['order'] == "ASC") ? "ASC" : "DESC";
+	$orderBy = (@$data['orderby'] == "NAME") ? "projects.name" : (@$data['orderby'] == "DATE") ? "projects.ID" : "projects.hit";
+	$start = (isset($data['start'])) ? (int)$data['start'] : 0;
+	$length = (isset($data['length'])) ? (int)$data['length'] : 10;
+	$where = [ "1 = 1" ];
+	if(isset($data['projectname'])) $where[] = "projects.name LIKE '%".$data['projectname']."%'";
+	if(isset($data['ownerfname'])) $where[] = "users.fname LIKE '%".$data['ownerfname']."%'";
+	if(isset($data['ownerlname'])) $where[] = "users.lname LIKE '%".$data['ownerlname']."%'";
+	
+	$where = implode(" AND ",$where);
+	$sql = "SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE ".$where." ORDER BY ".$orderBy." ".$order." LIMIT ".$start.", ".$length.";";
+	vlog($sql);	
+	$result2 = $db->query($sql);		
+	if ($result2->num_rows > 0) {
+		vlog("FOUND ".$result2->num_rows);
+		$url = [];
+		while($p = $result2->fetch_assoc()) {
+			$url[] = [
+				'project_id' => $p['ID'],
+				'name' => $p['name'],
+				'url' => $p['url'],
+				'view' => $p['hit'],
+				'owner' => [
+					'ID' => $p['uid'],
+					'email' => $p['email'],
+					'fname' => $p['fname'],
+					'lname' => $p['lname']
+				],
+				'gallery' => json_decode($p['gallery'])
+			];
+		}
+		echo json_encode($url);
+	} else {
+		vlog("NO MATCH");
+		echo json_encode([]);
+	}
+
+
+// ===== Update Proejct View
+} else if($method == 'GET' && preg_match('@^view/([0-9]+)@i', $path, $matches)) {
+	vlog("\n\nPOST /view/".$matches[1]);
+	$data = clean($_GET);
+	$sql = "UPDATE projects SET hit = hit + 1 WHERE ID = ".(int)$matches[1]." ;";
+	vlog($sql);
+	$db->query($sql);
+	if ($db->affected_rows > 0) {
+        echo json_encode(['updated' => true]);
+    } else {
+        echo json_encode(['updated' => false]);
+    }
+
 
 // ===== Default
 } else {
