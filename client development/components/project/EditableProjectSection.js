@@ -27,7 +27,7 @@ class EditableProjectSection extends Component {
         <span className="info-row" onClick={ this.handleClick }>
           { "by " + this.props.project.projectOwner.firstName + " " + this.props.project.projectOwner.lastName }
           <span className="pull-right">
-            { (parseInt(this.props.project.view) + 1) + " views" }
+            { (parseInt(this.props.project.view) + 1) + " การเข้าชม" }
           </span>
         </span>
 

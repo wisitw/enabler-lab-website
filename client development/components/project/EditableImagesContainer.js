@@ -126,7 +126,7 @@ class EditableImagesContainer extends Component {
                 })
               }
             </Slider>
-            ) : "no image.." }
+            ) : "ไม่มีรูปประกอบ.." }
           </div>
         </div>
         <div className="row">

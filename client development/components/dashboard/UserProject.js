@@ -48,9 +48,9 @@ class UserProject extends Component {
                             <div>
                               {
                                 (Object.keys(this.state.projects[key].projectImages).length > 0) ? (
-                                  <ProjectItem key={ key } projectName={ this.state.projects[key].projectName } author={ this.state.projects[key].projectOwner.firstName + " " + this.state.projects[key].projectOwner.lastName } image={ this.state.projects[key].projectImages[Object.keys(this.state.projects[key].projectImages)[0]] } url={ this.state.projects[key].projectUrl } />
+                                  <ProjectItem key={ key } projectName={ this.state.projects[key].projectName } author={ this.state.projects[key].projectOwner.firstName + " " + this.state.projects[key].projectOwner.lastName } view={ this.state.projects[key].view } image={ this.state.projects[key].projectImages[Object.keys(this.state.projects[key].projectImages)[0]] } url={ this.state.projects[key].projectUrl } />
                                 ) : (
-                                  <ProjectItem key={ key } projectName={ this.state.projects[key].projectName } author={ this.state.projects[key].projectOwner.firstName + " " + this.state.projects[key].projectOwner.lastName } url={ this.state.projects[key].projectUrl } />
+                                  <ProjectItem key={ key } projectName={ this.state.projects[key].projectName } author={ this.state.projects[key].projectOwner.firstName + " " + this.state.projects[key].projectOwner.lastName } view={ this.state.projects[key].view } url={ this.state.projects[key].projectUrl } />
                                 )
                               }
                             </div>

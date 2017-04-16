@@ -28,7 +28,7 @@ class SearchResult extends Component {
                 { "โดย " + this.props.result.projectOwner.firstName + this.props.result.projectOwner.lastName }
               </span>
               <span className="salary pull-right">
-                { this.props.result.view + " views" }
+                { this.props.result.view + " การเข้าชม" }
               </span>
             </span>
             <div className="jobs-desc">
