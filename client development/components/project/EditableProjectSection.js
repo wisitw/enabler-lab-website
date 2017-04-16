@@ -1,12 +1,20 @@
 import React, {Component, PropTypes} from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import EditableHeader from './EditableHeader';
 import EditableImagesContainer from './EditableImagesContainer';
 import EditableDescription from './EditableDescription';
+import * as projectActions from '../../actions/projectActions';
 
 class EditableProjectSection extends Component {
   constructor(props) {
     super(props)
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(event) {
+    event.preventDefault();
+    this.props.actions.fetchNewAdvanceSearchResult("", this.props.project.projectOwner.firstName, this.props.project.projectOwner.lastName, "VIEW", "DSC", 0, 12);
   }
 
   render() {
@@ -16,7 +24,7 @@ class EditableProjectSection extends Component {
         <div style={{
           clear: 'both'
         }}></div>
-        <span className="info-row">
+        <span className="info-row" onClick={ this.handleClick }>
           { "by " + this.props.project.projectOwner.firstName + " " + this.props.project.projectOwner.lastName }
           <span className="pull-right">
             { (parseInt(this.props.project.view) + 1) + " views" }
@@ -43,6 +51,7 @@ class EditableProjectSection extends Component {
 }
 
 EditableProjectSection.propTypes = {
+  actions: PropTypes.object.isRequired,
   projectUrl: PropTypes.number.isRequired,
   project: PropTypes.object.isRequired
 };
@@ -53,4 +62,11 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(EditableProjectSection);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(projectActions, dispatch)
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditableProjectSection);

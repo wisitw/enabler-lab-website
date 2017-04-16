@@ -340,3 +340,116 @@ export function fetchSearchAutoCompleteSuccess(response) {
     searchAutoComplete: response
   }
 }
+
+function advanceSearchToApiAdvanceSearch(projectName, ownerFirstName, ownerLastName, order, orderBy, start, length) {
+  return {
+    projectname: projectName,
+    ownerfname: ownerFirstName,
+    ownerlname: ownerLastName,
+    order: order,
+    orderby: orderBy,
+    start: start,
+    length: length
+  }
+}
+
+function apiAdvanceSearchResultToAdvanceSearchResult(apiResult, projectName, ownerFirstName, ownerLastName, order, orderBy) {
+  let result = {
+    projectName: projectName,
+    ownerFirstName: ownerFirstName,
+    ownerLastName: ownerLastName,
+    order: order,
+    orderBy: orderBy,
+    result: {
+
+    }
+  };
+
+  if (Object.keys(apiResult).length > 0) {
+    Object.keys(apiResult).forEach((key, index) => {
+      result.result[index] = {
+      projectName: apiResult[index].name,
+      projectOwner: {
+        firstName: apiResult[index].owner.fname,
+        lastName: apiResult[index].owner.lname
+      },
+      url: apiResult[index].url,
+      projectImage: apiResult[index].gallery ? apiResult[index].gallery[0] : null,
+      projectUrl: apiResult[index].url,
+      view: apiResult[index].view
+    }
+    });
+  }
+
+  return result;
+}
+
+function apiAdvanceSearchResultToAdvanceSearchResultAndMerge(oldResult, apiResult, projectName, ownerFirstName, ownerLastName, order, orderBy) {
+  let result = {
+    projectName: projectName,
+    ownerFirstName: ownerFirstName,
+    ownerLastName: ownerLastName,
+    order: order,
+    orderBy: orderBy,
+    result: oldResult
+  };
+
+  const offset = Object.keys(oldResult).length;
+
+  if (Object.keys(apiResult).length > 0) {
+    Object.keys(apiResult).forEach((key, index) => {
+      result.result[offset + index] = {
+      projectName: apiResult[index].name,
+      projectOwner: {
+        firstName: apiResult[index].owner.fname,
+        lastName: apiResult[index].owner.lname
+      },
+      url: apiResult[index].url,
+      projectImage: apiResult[index].gallery ? apiResult[index].gallery[0] : null,
+      projectUrl: apiResult[index].url,
+      view: apiResult[index].view
+    }
+    });
+  }
+
+  return result;
+}
+
+export function fetchAdvanceSearchResult(projectName, ownerFirstName, ownerLastName, order, orderBy, start, length) {
+  const formBody = rootApi.objectToBody(advanceSearchToApiAdvanceSearch(projectName, ownerFirstName, ownerLastName, order, orderBy, start, length));
+
+  const request = new Request(rootApi.rootEndPoint + 'advancesearch', {
+    method: 'POST',
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }),
+    body: formBody
+  });
+
+  return fetch(request).then(response => {
+    return response.json();
+  }).catch(error => {
+    return error;
+  });
+}
+
+export function fetchNewAdvanceSearchResultSuccess(response, projectName, ownerFirstName, ownerLastName, order, orderBy, start, length) {
+  return {
+    type: types.FETCH_NEW_ADVANCE_SEARCH_RESULT_SUCCESS,
+    advanceSearch: apiAdvanceSearchResultToAdvanceSearchResult(response, projectName, ownerFirstName, ownerLastName, order, orderBy),
+    start: 0,
+    length: Object.keys(response).length == length ? length : Object.keys(response).length,
+    hasNext: (Object.keys(response).length == length)
+  }
+}
+
+export function fetchMoreAdvanceSearchResultSuccess(oldResult, response, projectName, ownerFirstName, ownerLastName, order, orderBy, start, length) {
+  return {
+    type: types.FETCH_MORE_ADVANCE_SEARCH_RESULT_SUCCESS,
+    advanceSearch: apiAdvanceSearchResultToAdvanceSearchResultAndMerge(oldResult, response, projectName, ownerFirstName, ownerLastName, order, orderBy),
+    start: 0,
+    length: Object.keys(response).length == length ? length : Object.keys(response).length,
+    hasNext: (Object.keys(response).length == length)
+  }
+}

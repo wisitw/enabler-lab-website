@@ -29,5 +29,19 @@ export default {
 
   searchAutoComplete: {
     
+  },
+
+  advanceSearch: {
+    projectName: "",
+    ownerFirstName: "",
+    ownerLastName: "",
+    order: "ASC",
+    orderBy: "NAME",
+    result: {
+
+    },
+    start: 0,
+    length: 0,
+    hasNext: false
   }
 }

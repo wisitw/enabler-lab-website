@@ -56,6 +56,7 @@ class SearchBarContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.actions.fetchNewAdvanceSearchResult(this.state.keyword, "", "", "NAME", "ASC", 0, 12);
   }
 
   render() {

@@ -83,3 +83,25 @@ export function fetchSearchAutoComplete(keyword) {
     });
   };
 }
+
+export function fetchNewAdvanceSearchResult(projectName, ownerFirstName, ownerLastName, order, orderBy, start, length) {
+  return function(dispatch) {
+    return projectApi.fetchAdvanceSearchResult(projectName, ownerFirstName, ownerLastName, order, orderBy, start, length).then(response => {
+      console.log(response);
+      dispatch(projectApi.fetchNewAdvanceSearchResultSuccess(response, projectName, ownerFirstName, ownerLastName, order, orderBy, start, length));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+export function fetchMoreAdvanceSearchResult(oldResult, projectName, ownerFirstName, ownerLastName, order, orderBy, start, length) {
+  return function(dispatch) {
+    return projectApi.fetchAdvanceSearchResult(projectName, ownerFirstName, ownerLastName, order, orderBy, start, length).then(response => {
+      console.log(response);
+      dispatch(projectApi.fetchMoreAdvanceSearchResultSuccess(oldResult, response, projectName, ownerFirstName, ownerLastName, order, orderBy, start, length));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}

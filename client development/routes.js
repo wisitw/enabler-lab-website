@@ -8,7 +8,8 @@ import SignInPage from './components/signin/SignInPage';
 import AboutUsPage from './components/aboutus/AboutUsPage';
 import DashboardPage from './components/dashboard/DashboardPage';
 import AddProjectPage from './components/addproject/AddProjectPage';
-import ProjectPage from './components/project/ProjectPage'
+import ProjectPage from './components/project/ProjectPage';
+import SearchPage from './components/search/SearchPage';
 
 import Error404Page from './components/error/404';
 import Error405Page from './components/error/405';
@@ -33,6 +34,7 @@ export default (
     <Route path="/dashboard" component={ DashboardPage } onEnter={ requireAuthentication} />
     <Route path="/project/add" component={ AddProjectPage } onEnter={ requireAuthentication} />
     <Route path="/project/:projectUrl" component={ ProjectPage } />
+    <Route path="/search" component={ SearchPage } />
     <Route path="/404" component={ Error404Page } />
     <Route path="/405" component={ Error405Page } />
     <Route path="/500" component={ Error500Page } />

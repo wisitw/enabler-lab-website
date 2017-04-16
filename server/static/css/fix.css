@@ -92,3 +92,7 @@
 .landing-page {
   height: 100vh;
 }
+
+.add-image img {
+  width: 100%;
+}

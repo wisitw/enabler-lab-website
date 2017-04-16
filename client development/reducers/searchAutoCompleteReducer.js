@@ -1,6 +1,5 @@
 import * as types from '../actions/types';
 import initialState from './initialState';
-import { browserHistory } from 'react-router';
 
 export default function searchAutoCompleteReducer(state = initialState.searchAutoComplete, action) {
   switch(action.type) {
