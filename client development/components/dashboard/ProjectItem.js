@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-const ProjectItem = ({ projectName, author, image = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png", url }) => {
+const ProjectItem = ({ projectName, author, image = "images/no_image_available.svg.png", url }) => {
   return (
     <div className="highlight-item">
       <Link to={ "project/" + url }>

@@ -37,7 +37,7 @@ const Error404Page = () => {
                     404 Not Found
                   </h1>
                   <p className="  animated  fade-in delay-2">
-                    รู้สึกแย่ล่ะสิที่ต้องมาเจออะไรแบบนี้ :(
+                    หน้านี้ไม่มีนะจ๊ะ 55555
                   </p>
                   <div id="subscribe" className="animated  fadeIn delay-4">
                     <div className="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0"></div>

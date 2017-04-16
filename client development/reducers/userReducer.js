@@ -34,7 +34,22 @@ export default function userReducer(state = initialState.user, action) {
       return Object.assign({}, action.user);
 
     case types.FETCH_CURRENT_USER_INFO_ERROR:
+      browserHistory.push('/500');
+      return state;
+
+    case types.CHECK_RESET_PASSWORD_CODE_SUCCESS:
+      return state;
+
+    case types.CHECK_RESET_PASSWORD_CODE_ERROR:
       browserHistory.push('/405');
+      return state;
+
+    case types.RESET_PASSWORD_SUCCESS:
+      browserHistory.push('/signin');
+      return state;
+
+    case types.RESET_PASSWORD_ERROR:
+      browserHistory.push('/500');
       return state;
 
     default:

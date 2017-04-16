@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import * as MessageSource from '../../resources/MessageSource';
-import * as userApi from '../../api/userApi';
 
 class TextFieldGroup extends Component {
   constructor(props) {
@@ -8,13 +6,12 @@ class TextFieldGroup extends Component {
     this.state = {
       value: this.props.value,
       formClass: "",
-      error: "",
+      error: ""
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
     this.handleEmptyValue = this.handleEmptyValue.bind(this);
-    this.handleEmailValue = this.handleEmailValue.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -31,15 +28,11 @@ class TextFieldGroup extends Component {
     if (event.target.value == "") {
       this.handleEmptyValue();
     } else {
-      if (this.props.isEmail) {
-        this.handleEmailValue(event.target.value);
-      } else {
-        this.props.setError(this.props.name, false);
-        this.setState({
-          error: "",
-          formClass: "has-success"
-        });
-      }
+      this.props.setError(this.props.name, false);
+      this.setState({
+        error: "",
+        formClass: "has-success"
+      });
     }
   }
   
@@ -63,25 +56,6 @@ class TextFieldGroup extends Component {
     }
   }
 
-  handleEmailValue(url) {
-    userApi.isEmailAvailable(url).then(response => {
-      console.log(response);
-      if (response.available) {
-        this.props.setError(this.props.name, false);
-        this.setState({
-          error: "",
-          formClass: "has-success"
-        });
-      } else {
-        this.props.setError(this.props.name, true);
-        this.setState({
-          error: MessageSource.getNotAvailableError("email"),
-          formClass: "has-error"
-        });
-      }
-    });
-  }
-
   render() {
     const {
       types = "text",
@@ -90,8 +64,9 @@ class TextFieldGroup extends Component {
 
     return (
       <div className={ "form-group " + this.state.formClass }>
-        <label className="col-sm-4 control-label">{ this.props.label }</label>
-        <div className="col-sm-6">
+        <label className="control-label">{ this.props.label }</label>
+        <div className="input-icon">
+          <i className={ this.props.icon }></i>
           <input type={ types } name={ this.props.name } className="form-control" placeholder={ this.props.label } value={ this.statevalue } onChange={ this.handleChange } onBlur= { this.handleBlur } required={ isRequired }/>
           <span className="help-block">{ this.state.error }</span>
         </div>
@@ -103,11 +78,11 @@ class TextFieldGroup extends Component {
 TextFieldGroup.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  icon: PropTypes.string,
   types: PropTypes.string,
   value: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
   onUpdate: PropTypes.func.isRequired,
-  isEmail: PropTypes.bool,
   setError: PropTypes.func
 }
 

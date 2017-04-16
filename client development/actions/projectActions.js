@@ -87,7 +87,6 @@ export function fetchSearchAutoComplete(keyword) {
 export function fetchNewAdvanceSearchResult(projectName, ownerFirstName, ownerLastName, order, orderBy, start, length) {
   return function(dispatch) {
     return projectApi.fetchAdvanceSearchResult(projectName, ownerFirstName, ownerLastName, order, orderBy, start, length).then(response => {
-      console.log(response);
       dispatch(projectApi.fetchNewAdvanceSearchResultSuccess(response, projectName, ownerFirstName, ownerLastName, order, orderBy, start, length));
     }).catch(error => {
       throw(error);
@@ -98,8 +97,17 @@ export function fetchNewAdvanceSearchResult(projectName, ownerFirstName, ownerLa
 export function fetchMoreAdvanceSearchResult(oldResult, projectName, ownerFirstName, ownerLastName, order, orderBy, start, length) {
   return function(dispatch) {
     return projectApi.fetchAdvanceSearchResult(projectName, ownerFirstName, ownerLastName, order, orderBy, start, length).then(response => {
-      console.log(response);
       dispatch(projectApi.fetchMoreAdvanceSearchResultSuccess(oldResult, response, projectName, ownerFirstName, ownerLastName, order, orderBy, start, length));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+export function fetchHighlight(start, length) {
+  return function(dispatch) {
+    return projectApi.fetchAdvanceSearchResult("", "", "", "DSC", "VIEW", start, length).then(response => {
+      dispatch(projectApi.fetchHighlightSuccess(response));
     }).catch(error => {
       throw(error);
     });

@@ -83,7 +83,7 @@ export function signup(user) {
 export function isEmailAvailable(email) {
   var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (emailRegEx.test(email)) {
-    const formBody = rootApi.objectToBody(email);
+    const formBody = rootApi.objectToBody({email: email});
 
     const request = new Request(rootApi.rootEndPoint + 'emailavailable', {
       method: 'POST',
@@ -242,5 +242,98 @@ export function fetchProjectError() {
   return {
     type: types.FETCH_CURRENT_USER_INFO_ERROR,
     user: {}
+  }
+}
+
+export function forgotPassword(email) {
+  const formBody = rootApi.objectToBody({email: email});
+
+  const request = new Request(rootApi.rootEndPoint + 'forget', {
+    method: 'POST',
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }),
+    body: formBody
+  });
+
+  return fetch(request).then(response => {
+    return response.json();
+  }).catch(error => {
+    return error;
+  });
+}
+
+export function checkResetPasswordCode(code) {
+  const formBody = rootApi.objectToBody({code: code});
+
+  const request = new Request(rootApi.rootEndPoint + 'checktochange', {
+    method: 'POST',
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }),
+    body: formBody
+  });
+
+  return fetch(request).then(response => {
+    return response.json();
+  }).catch(error => {
+    return error;
+  });
+}
+
+export function checkResetPasswordCodeSuccess(response) {
+  return {
+    type: types.CHECK_RESET_PASSWORD_CODE_SUCCESS,
+    user: {
+
+    }
+  }
+}
+
+export function checkResetPasswordCodeError() {
+  return {
+    type: types.CHECK_RESET_PASSWORD_CODE_ERROR,
+    user: {
+
+    }
+  }
+}
+
+export function resetPassword(newPassword, code) {
+  const formBody = rootApi.objectToBody({code: code, password: newPassword});
+
+  const request = new Request(rootApi.rootEndPoint + 'changepwd', {
+    method: 'POST',
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }),
+    body: formBody
+  });
+
+  return fetch(request).then(response => {
+    return response.json();
+  }).catch(error => {
+    return error;
+  });
+}
+
+export function resetPasswordSuccess() {
+  return {
+    type: types.RESET_PASSWORD_SUCCESS,
+    user: {
+
+    }
+  }
+}
+
+export function resetPasswordError() {
+  return {
+    type: types.RESET_PASSWORD_ERROR,
+    user: {
+      
+    }
   }
 }

@@ -13,7 +13,7 @@ class SearchResult extends Component {
           <div className="add-image">
             <img
               className="thumbnail no-margin"
-              src={ this.props.result.projectImage ? this.props.result.projectImage : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png" }
+              src={ this.props.result.projectImage ? this.props.result.projectImage : "images/no_image_available.svg.png" }
               alt="project image"/>
           </div>
         </div>

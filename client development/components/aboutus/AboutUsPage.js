@@ -12,7 +12,7 @@ const AboutUsPage = () => {
           <div className="dtable hw100">
             <div className="dtable-cell hw100">
               <div className="container text-center">
-                <h1 className="intro-title animated fadeInDown"> ENABLER LAB </h1>
+                <h1 className="intro-title animated fadeInDown"> About ENABLER LAB </h1>
               </div>
             </div>
           </div>

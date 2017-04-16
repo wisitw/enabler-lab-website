@@ -19,6 +19,13 @@ export default function advanceSearchReducer(state = initialState.advanceSearch,
         hasNext: action.hasNext
       });
 
+    case types.FETCH_HIGHLIGHT_SUCCESS:
+      return Object.assign({}, state, action.advanceSearch, {
+        start: action.length,
+        length: action.length,
+        hasNext: action.hasNext
+      });
+
     default:
       return state;
   }

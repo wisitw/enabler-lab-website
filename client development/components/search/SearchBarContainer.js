@@ -41,8 +41,7 @@ class SearchBarContainer extends Component {
             <TextFieldGroup name="ownerLastName" placeholder="Owner Last Name" value={ this.props.ownerLastName } onUpdate={ this.updateTextField } />
             <div className="col-sm-3">
               <button className="btn btn-block btn-primary" onClick={ this.handleSubmit } >
-                Search
-                <i className="fa fa-search"></i>
+                Search <i className="fa fa-search"></i>
               </button>
             </div>
           </div>

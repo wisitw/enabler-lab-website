@@ -1,8 +1,31 @@
-import React, { Component, Proptypes } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Slider from 'react-slick'
 import HighlightItem from './HighlightItem'
+import * as projectActions from '../../actions/projectActions';
 
 class HighLight extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      highlights: {
+
+      }
+    }
+  }
+
+  componentWillMount() {
+    this.props.actions.fetchHighlight(0, 12);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      highlights: nextProps.highlights
+    });
+  }
+
   render() {
     const settings = {
       dots: true,
@@ -26,26 +49,21 @@ class HighLight extends Component {
               <div style={{clear: 'both'}}>
               </div>
               <div className="relative content featured-list-row clearfix">
-                <Slider {...settings}>
-                  <div>
-                    <HighlightItem key="1" projectName="Test1" author="Kiki" />
-                  </div>
-                  <div>
-                    <HighlightItem key="2" projectName="Test2" author="Kiki" />
-                  </div>
-                  <div>
-                    <HighlightItem key="3" projectName="Test3" author="Kiki" />
-                  </div>
-                  <div>
-                    <HighlightItem key="4" projectName="Test4" author="Kiki" />
-                  </div>
-                  <div>
-                    <HighlightItem key="5" projectName="Test5" author="Kiki" />
-                  </div>
-                  <div>
-                    <HighlightItem key="6" projectName="Test6" author="Kiki" />
-                  </div>
-                </Slider>
+                { 
+                  Object.keys(this.props.highlights).length > 0 ? (
+                    <Slider {...settings}>
+                      {
+                        Object.keys(this.props.highlights).map((key, index) => {
+                          return (
+                            <div key={ index }>
+                              <HighlightItem result={ this.props.highlights[key] } />
+                            </div>
+                          )
+                        })
+                      }
+                    </Slider>
+                  ) : ""
+                }    
               </div>
             </div>
           </div>
@@ -54,4 +72,22 @@ class HighLight extends Component {
   }
 }
 
-export default HighLight;
+HighLight.propTypes = {
+  actions: PropTypes.object.isRequired,
+  highlights: PropTypes.object.isRequired
+}
+
+function mapStateToProps(state) {
+  return {
+    highlights: state.advanceSearch.result
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(projectActions, dispatch)
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(HighLight);

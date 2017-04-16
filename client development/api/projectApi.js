@@ -453,3 +453,13 @@ export function fetchMoreAdvanceSearchResultSuccess(oldResult, response, project
     hasNext: (Object.keys(response).length == length)
   }
 }
+
+export function fetchHighlightSuccess(response) {
+  return {
+    type: types.FETCH_HIGHLIGHT_SUCCESS,
+    advanceSearch: apiAdvanceSearchResultToAdvanceSearchResult(response, "", "", "", "DSC", "VIEW"),
+    start: 0,
+    length: Object.keys(response).length,
+    hasNext: false
+  }
+}

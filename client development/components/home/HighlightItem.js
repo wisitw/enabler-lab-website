@@ -1,33 +1,29 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 
 class HighlightItem extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
-    const {
-      image = '/images/auto/2012-mercedes-benz-sls-amg.jpg',
-      projectName = 'Project',
-      author = 'Unknown'
-    } = this.props;
-
     return (
-      <div className="highlight-item">
-        <div>
-          <img className="img-responsive image" src={ image } alt="img" />
+      <Link to={ "/project/" + this.props.result.url }>
+        <div className="highlight-item">
+          <div>
+            <img className="img-responsive image" src={ this.props.result.projectImage ? this.props.result.projectImage : "images/no_image_available.svg.png" } alt="img" />
+          </div>
+          <div className="project-name">{ this.props.result.projectName }</div>
+          <div className="author">by { "by " + this.props.result.projectOwner.firstName + this.props.result.projectOwner.lastName }</div>
         </div>
-        <div className="project-name">{ projectName }</div>
-        <div className="author">by { author }</div>
-      </div>
+      </Link>
       );
   }
 }
 
 HighlightItem.propTypes = {
-  image: PropTypes.string,
-  projectName: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired
+  result: PropTypes.object.isRequired
 };
 
 export default HighlightItem;
+

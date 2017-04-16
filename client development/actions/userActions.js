@@ -62,3 +62,31 @@ export function fetchCurrentUser() {
     });
   };
 }
+
+export function forgotPassword(email) {
+  userApi.forgotPassword(email);
+}
+
+export function checkResetPasswordCode(code) {
+  return function(dispatch) {
+    return userApi.checkResetPasswordCode(code).then((response) => {
+      if (response.found) {
+        dispatch(userApi.checkResetPasswordCodeSuccess(response));
+      } else {
+        dispatch(userApi.checkResetPasswordCodeError());
+      }
+    });
+  };
+}
+
+export function resetPassword(newPassword, code) {
+  return function(dispatch) {
+    return userApi.resetPassword(newPassword, code).then((response) => {
+      if (response.success) {
+        dispatch(userApi.resetPasswordSuccess(response));
+      } else {
+        dispatch(userApi.resetPasswordError());
+      }
+    });
+  };
+}

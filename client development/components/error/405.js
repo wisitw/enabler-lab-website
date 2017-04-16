@@ -37,7 +37,7 @@ const Error405Page = () => {
                     405 Method not Allowed
                   </h1>
                   <p className="  animated  fade-in delay-2">
-                    แย่จัง เจอ bug ซะแล้ว :(
+                    อย่าซน!
                   </p>
                   <div id="subscribe" className="animated  fadeIn delay-4">
                     <div className="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0"></div>
