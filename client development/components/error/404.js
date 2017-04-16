@@ -7,10 +7,12 @@ const Error404Page = () => {
       <header className="landing-header">
         <div className="inner">
           <div className="pull-left">
-            <div className="site-title logo-title">
-              ENABLER<span>LAB
-              </span>
-            </div>
+            <IndexLink to="/">
+              <div className="site-title logo-title">
+                ENABLER<span>LAB
+                </span>
+              </div>
+            </IndexLink>
           </div>
           <div className="pull-right">
             <i
