@@ -96,3 +96,7 @@
 .add-image img {
   width: 100%;
 }
+
+#app { 
+  height:100%; 
+}
