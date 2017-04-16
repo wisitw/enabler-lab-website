@@ -314,3 +314,29 @@ export function incrementView(id) {
     return error;
   });
 }
+
+export function fetchSearchAutoComplete(keyword) {
+  const formBody = rootApi.objectToBody({keyword: keyword});
+
+  const request = new Request(rootApi.rootEndPoint + 'searchprojects', {
+    method: 'POST',
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }),
+    body: formBody
+  });
+
+  return fetch(request).then(response => {
+    return response.json();
+  }).catch(error => {
+    return error;
+  });
+}
+
+export function fetchSearchAutoCompleteSuccess(response) {
+  return {
+    type: types.FETCH_SEARCH_AUTO_COMPLETE_SUCCESS,
+    searchAutoComplete: response
+  }
+}

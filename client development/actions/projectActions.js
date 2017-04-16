@@ -73,3 +73,13 @@ export function deleteProject(id) {
     });
   };
 }
+
+export function fetchSearchAutoComplete(keyword) {
+  return function(dispatch) {
+    return projectApi.fetchSearchAutoComplete(keyword).then(response => {
+      dispatch(projectApi.fetchSearchAutoCompleteSuccess(response));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
