@@ -1,69 +1,53 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { IndexLink } from 'react-router';
 
 const Error404Page = () => {
   return (
-    <div className="error-div">
-      <section className="landing-page">
-        <header className="landing-header">
-          <div className="inner">
-            <div className="pull-left">
-              <div className="site-title logo-title">
-                ENABLER<span>LAB
-                </span>
-              </div>
-            </div>
-            <div className="pull-right">
-              <i
-                data-toggle="modal"
-                data-target="#myModal"
-                className="icon icon-info-circled"></i>
+    <section className="landing-page">
+      <header className="landing-header">
+        <div className="inner">
+          <div className="pull-left">
+            <div className="site-title logo-title">
+              ENABLER<span>LAB
+              </span>
             </div>
           </div>
-        </header>
-        <div className="inner hw100">
-          <div
-            className="landing-intro fade-in"
-            style={{
-            background: 'url(images/bg.jpg) no-repeat center',
-            backgroundSize: 'cover'
-          }}>
-            <div className="dtable hw100 hasOverly">
-              <div className="dtable-cell hw100">
-                <div className="container text-center">
-                  <div className="landing-text">
-                    <h1 className="intro-title animated fadeInDown  delay-1">
-                      404 Not Found
-                    </h1>
-                    <p className="  animated  fade-in delay-2">
-                      รู้สึกแย่ล่ะสิที่ต้องมาเจออะไรแบบนี้ :(
-                    </p>
-                    <div id="subscribe" className="animated  fadeIn delay-4">
-                      <div className="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0"></div>
-                    </div>
+          <div className="pull-right">
+            <i
+              data-toggle="modal"
+              data-target="#myModal"
+              className="icon icon-info-circled"></i>
+          </div>
+        </div>
+      </header>
+      <div className="inner hw100">
+        <div
+          className="landing-intro fade-in"
+          style={{
+          background: 'url(images/bg.jpg) no-repeat center',
+          backgroundSize: 'cover'
+        }}>
+          <div className="dtable hw100 hasOverly">
+            <div className="dtable-cell hw100">
+              <div className="container text-center">
+                <div className="landing-text">
+                  <h1 className="intro-title animated fadeInDown  delay-1">
+                    404 Not Found
+                  </h1>
+                  <p className="  animated  fade-in delay-2">
+                    รู้สึกแย่ล่ะสิที่ต้องมาเจออะไรแบบนี้ :(
+                  </p>
+                  <div id="subscribe" className="animated  fadeIn delay-4">
+                    <div className="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0"></div>
                   </div>
-                  <div className="social-list"></div>
                 </div>
+                <div className="social-list"></div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <footer className="footer" id="footer-error">
-        <div className="container">
-          <ul className="pull-left navbar-link footer-nav">
-            <li>
-              <Link to="/" activeClassName="active">Home</Link>
-              <Link to="/aboutus" activeClassName="active">About Us</Link>
-              <Link to="/founder" activeClassName="active">Founder Team</Link>
-            </li>
-          </ul>
-          <ul className="pull-right navbar-link footer-nav">
-            <li> &copy; 2017 EnablerLab.com</li>
-          </ul>
-        </div>
-      </footer>
-    </div>
+      </div>
+    </section>
   );
 }
 
