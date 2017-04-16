@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors','On');
+//error_reporting(E_ALL);
+//ini_set('display_errors','On');
 
 header('Access-Control-Allow-Origin: *');
 
@@ -11,7 +11,7 @@ $password = "2eZyvxbNwl";
 
 // Create connection
 $db = new mysqli($servername, $studentid, $password, $dbname);
-if ($db->connect_error) {
+if ($db->connect_error) { 
 	die("api is not ready to use");
 	//die("Connection failed: " . $conn->connect_error);
 } else {
@@ -34,6 +34,8 @@ if($method == 'POST' && $path == 'signup') {
 // ===== Check if Email is available
 } else if($method == 'POST' && $path == 'emailavailable') {
     $data = clean($_POST);
+	vlog("\n\nPOST /emailavailable ".$data['email']);
+	vlog(print_r($_POST,true));
     $sql = "SELECT ID FROM users WHERE email LIKE '".$data['email']."' LIMIT 1;";
     $result = $db->query($sql);
     if ($result->num_rows > 0) {
@@ -73,7 +75,7 @@ if($method == 'POST' && $path == 'signup') {
 	vlog("\n\nPOST /forget ".$data['email']);
 	vlog($typ);
 	$sql = "UPDATE users SET reset = '".$typ."' WHERE email LIKE '".$data['email']."';";
-    $result = $db->query($sql);
+    $result = $db->query($sql); 
 	
     if ($db->affected_rows > 0) {
 		vlog("SEND MAIL TO USER");
@@ -100,7 +102,7 @@ if($method == 'POST' && $path == 'signup') {
 	$data['password'] = password_hash($data['password'],PASSWORD_BCRYPT);
 	vlog("\n\nPOST /chnagepwd ".$data['code']);
 	
-	$sql = "UPDATE users SET token = '', password = '".$data['password']."' WHERE reset LIKE '".$data['code']."';";
+	$sql = "UPDATE users SET reset='', token = '', password = '".$data['password']."' WHERE reset LIKE '".$data['code']."';";
     $result = $db->query($sql);
     if ($db->affected_rows > 0) {
 		$back = ['success'=>true];

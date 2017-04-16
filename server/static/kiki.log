@@ -1,0 +1,1877 @@
+﻿
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects WHERE name LIKE '%%' JOIN users ON projects.user_id = users.ID;
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects WHERE name LIKE '%โปร%' JOIN users ON projects.user_id = users.ID;
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%โปร%';
+FOUND 7
+
+
+POST /view 
+SELECT projects SET view = view + 1 WHERE ID = 7 ;
+
+
+POST /view 
+UPDATE projects SET view = view + 1 WHERE ID = 7 ;
+
+
+POST /view 
+UPDATE projects SET view = view + 1 WHERE ID = 7 ;
+
+
+POST /view 7
+UPDATE projects SET view = view + 1 WHERE ID = 7 ;
+
+
+POST /view 7
+UPDATE projects SET view = view + 1 WHERE ID = 7 ;
+
+
+POST /view 7
+UPDATE projects SET hit = hit + 1 WHERE ID = 7 ;
+
+
+POST /view 7
+UPDATE projects SET hit = hit + 1 WHERE ID = 7 ;
+
+
+POST /view 7
+UPDATE projects SET hit = hit + 1 WHERE ID = 7 ;
+
+
+POST /view 7
+UPDATE projects SET hit = hit + 1 WHERE ID = 7 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /view 34
+UPDATE projects SET hit = hit + 1 WHERE ID = 34 ;
+
+
+POST /myprojects
+SELECT * FROM users WHERE token LIKE 'D7RRU361d4NaXhCHsyKNwvN5RuJqThA6' LIMIT 1;
+USER FOUND
+Get Project List
+SELECT * FROM projects WHERE user_id = 9 ;
+FOUND 5
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /myprojects
+SELECT * FROM users WHERE token LIKE 'D7RRU361d4NaXhCHsyKNwvN5RuJqThA6' LIMIT 1;
+USER FOUND
+Get Project List
+SELECT * FROM projects WHERE user_id = 9 ;
+FOUND 5
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%d%';
+FOUND 4
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%d%';
+FOUND 4
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%E%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%f%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ทดสอบโปรเจค 2%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%d%';
+FOUND 4
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsad%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ทดสอบโปรเจค 2%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ทดสอบโปรเจค 2%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%d%';
+FOUND 4
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsad%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ทดสอบโปรเจค 2%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ทดสอบโปรเจค 2%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ทดสอบโปรเจค 2%';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsad%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ทดสอบโปรเจค 2 @film_tesda%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ทดสอบโปรเจค %';
+FOUND 7
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%s%';
+FOUND 4
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%EnaZoom Test%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%EnaZoom Test%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%EnaZoom Test%';
+FOUND 1
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%a%';
+FOUND 3
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%as%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%asa%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%asas%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%asa%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%as%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%a%';
+FOUND 3
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsad%';
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'sadsdsd' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+FOUND 1
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/31
+UPDATE projects SET hit = hit + 1 WHERE ID = 31 ;
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%dsfdsf%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 12, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%dfs%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 12, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 12, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 12, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%K%' AND users.lname LIKE '%E%' ORDER BY projects.ID ASC LIMIT 12, 12;
+NO MATCH
+
+
+POST /myprojects
+SELECT * FROM users WHERE token LIKE 'xfbZpZtEwfaTYsiLZZBfLKHvSCsUAPQZ' LIMIT 1;
+USER FOUND
+Get Project List
+SELECT * FROM projects WHERE user_id = 9 ;
+FOUND 5
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /myprojects
+SELECT * FROM users WHERE token LIKE 'xfbZpZtEwfaTYsiLZZBfLKHvSCsUAPQZ' LIMIT 1;
+USER FOUND
+Get Project List
+SELECT * FROM projects WHERE user_id = 9 ;
+FOUND 5
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%K%' AND users.lname LIKE '%E%' ORDER BY projects.ID ASC LIMIT 24, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%K%' AND users.lname LIKE '%E%' ORDER BY projects.ID ASC LIMIT 36, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%K%' AND users.lname LIKE '%E%' ORDER BY projects.ID ASC LIMIT 48, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%E%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%E%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%E%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%E%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%f%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%aa%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%aa%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%aa%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%aa%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%aa%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%aa%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+NO MATCH
+
+
+POST /myprojects
+SELECT * FROM users WHERE token LIKE 'xfbZpZtEwfaTYsiLZZBfLKHvSCsUAPQZ' LIMIT 1;
+USER FOUND
+Get Project List
+SELECT * FROM projects WHERE user_id = 9 ;
+FOUND 5
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%undefined%' AND users.fname LIKE '%e%' AND users.lname LIKE '%undefined%' ORDER BY projects.hit DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%undefined%' AND users.lname LIKE '%undefined%' ORDER BY projects.hit DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%E%' AND users.fname LIKE '%undefined%' AND users.lname LIKE '%undefined%' ORDER BY projects.hit DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%E%' AND users.fname LIKE '%undefined%' AND users.lname LIKE '%undefined%' ORDER BY projects.hit DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%En%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%En%' AND users.fname LIKE '%ddd%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%En%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%en%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%df%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%fg%' ORDER BY projects.ID ASC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%df%' AND users.fname LIKE '%fd%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%E%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%e%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'undefined' LIMIT 1;
+PROJECT NOT FOUND
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'undefined' LIMIT 1;
+PROJECT NOT FOUND
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%e%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%EnaZoom%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'new' LIMIT 1;
+PROJECT NOT FOUND
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'new' LIMIT 1;
+PROJECT NOT FOUND
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 12
+
+
+POST /projectavailable
+SELECT ID FROM projects WHERE url LIKE 'sddsaf' LIMIT 1;
+Duplicated
+
+
+POST /newproject
+SELECT ID FROM users WHERE token LIKE 'DHNULE23f57DL2GraMQrseyAZiwpHxTv' LIMIT 1;
+USER FOUND
+Process request
+INSERT INTO  projects (`name` ,`url` ,`detail` ,`user_id` ,`gallery`) VALUES ('dfs',  'sddsaf',  '',  '9',  'null');
+ADD SUCCESS
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'sddsaf' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/36
+UPDATE projects SET hit = hit + 1 WHERE ID = 36 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'sddsaf' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/36
+UPDATE projects SET hit = hit + 1 WHERE ID = 36 ;
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 12, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 12, 12;
+FOUND 1
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%Kiki%' AND users.lname LIKE '%Enabler%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 6
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 12, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ฎ%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%E%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%En%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%Ena%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%Enab%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%Enabl%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%Enable%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%Enabler%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%Enable%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%Enabl%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%Enab%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%Ena%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%EnaZ%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%EnaZo%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%EnaZoo%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%EnaZoom%';
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%EnaZoom%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 1
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%EnaZoom%' AND users.fname LIKE '%ss%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%EnaZoom%' AND users.fname LIKE '%ss%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%EnaZoom%' AND users.fname LIKE '%ss%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%EnaZoom%' AND users.fname LIKE '%ss%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%ss%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%ss%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%ss%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.ID ASC LIMIT 0, 12;
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%s%';
+FOUND 5
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sd%';
+FOUND 3
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sds%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsa%';
+FOUND 1
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsas%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsasa%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsasad%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsasads%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsasadsa%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsasadsad%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsasadsadd%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsasadsadds%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%sdsasadsaddsa%';
+NO MATCH
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%sdsasadsaddsa%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /myprojects
+SELECT * FROM users WHERE token LIKE 'AyZzJwm37pWfppGvGiirzP6aE5tcJDLt' LIMIT 1;
+USER FOUND
+Get Project List
+SELECT * FROM projects WHERE user_id = 9 ;
+FOUND 6
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'film_tes' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 7 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/13
+UPDATE projects SET hit = hit + 1 WHERE ID = 13 ;
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /forget sss
+
+
+POST /forget sss
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /forget zzz@zzz.zzz
+
+
+POST /checktochange zzz
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /checktochange NWXiRiiT7Z
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /forget wisit@gipsic.com
+7bm59nDBkd
+
+
+POST /forget wisit@gipsic.com
+wXBFyJskJw
+SEND MAIL TO USER
+
+
+POST /forget wisit@gipsic.com
+auYu6r4yY2
+SEND MAIL TO USER
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /forget zzz@zzz.zzz
+LzqLdPbohH
+SEND MAIL TO USER
+
+
+POST /checktochange LzqLdPbohH
+
+
+POST /checktochange LzqLdPbohH
+
+
+POST /checktochange LzqLdPbohH
+
+
+POST /chnagepwd LzqLdPbohH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /myprojects
+SELECT * FROM users WHERE token LIKE 'uaxupAfmQfG5yykLwM1L6JXqgCQ13UaN' LIMIT 1;
+USER FOUND
+Get Project List
+SELECT * FROM projects WHERE user_id = 9 ;
+FOUND 6
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /forget wisit@gipsic.com
+BHkb96RMM5
+SEND MAIL TO USER
+
+
+POST /forget s.chockthanyawat@gmail.com
+sTGwvnYyi9
+SEND MAIL TO USER
+
+
+POST /forget wisit@gipsic.com
+P4Bf2bcHPJ
+SEND MAIL TO USER
+
+
+POST /forget wisit@gipsic.com
+JCZXWZ1gvD
+SEND MAIL TO USER
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ฟ%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ฟห%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ฟหก%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ฟหกฟ%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ฟหกฟห%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ฟหกฟหก%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ฟหกฟหกห%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%ฟหกฟหกหก%';
+NO MATCH
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /emailavailable s.chockthanyawat@gmail.com
+Array
+(
+    [email] => s.chockthanyawat@gmail.com
+)
+
+
+
+POST /emailavailable s.chockthanyawat@gmail.com
+Array
+(
+    [email] => s.chockthanyawat@gmail.com
+)
+
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /projectavailable
+SELECT ID FROM projects WHERE url LIKE 'ee' LIMIT 1;
+Duplicated
+
+
+POST /projectavailable
+SELECT ID FROM projects WHERE url LIKE 'aa' LIMIT 1;
+Duplicated
+
+
+POST /projectavailable
+SELECT ID FROM projects WHERE url LIKE 'ss' LIMIT 1;
+Duplicated
+
+
+POST /projectavailable
+SELECT ID FROM projects WHERE url LIKE '1' LIMIT 1;
+Duplicated
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
+
+
+POST /projectinfo
+SELECT ID, name, hit, url, detail, gallery, user_id FROM projects WHERE url = 'enazoom' LIMIT 1;
+PROJECT FOUND, GET USER INFO
+SELECT ID, email, fname, lname, token FROM users WHERE ID = 9 LIMIT 1;
+RETURN USER INFO
+
+
+POST /view/27
+UPDATE projects SET hit = hit + 1 WHERE ID = 27 ;
+
+
+POST /projectavailable
+SELECT ID FROM projects WHERE url LIKE 'enazoom' LIMIT 1;
+Available
+
+
+POST /searchprojects
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE projects.name LIKE '%%';
+FOUND 13
+
+
+POST /advancesearch
+SELECT projects.*, users.fname, users.ID as uid, users.lname, users.email FROM projects JOIN users ON projects.user_id = users.ID WHERE 1 = 1 AND projects.name LIKE '%%' AND users.fname LIKE '%%' AND users.lname LIKE '%%' ORDER BY projects.hit DESC LIMIT 0, 12;
+FOUND 12
