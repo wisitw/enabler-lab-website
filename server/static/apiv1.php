@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors','On');
+
 header('Access-Control-Allow-Origin: *');
 
 $servername = "localhost";
@@ -62,6 +63,65 @@ if($method == 'POST' && $path == 'signup') {
 		}
 	} else {
 		$back = ['success'=>false,'error'=>1];
+    }
+	echo json_encode($back);
+
+// ===== Request Reset Pass     
+} else if($method == 'POST' && $path == 'forget') { 
+    $data = clean($_POST);
+	$typ = randToken(10);
+	vlog("\n\nPOST /forget ".$data['email']);
+	vlog($typ);
+	$sql = "UPDATE users SET reset = '".$typ."' WHERE email LIKE '".$data['email']."';";
+    $result = $db->query($sql);
+	
+    if ($db->affected_rows > 0) {
+		vlog("SEND MAIL TO USER");
+		
+		$message = "We heard that you lost your EnablerLab password. Sorry about that!"."\r\n\r\n".
+		"But don’t worry! You can use the following link to reset your password:"."\r\n\r\n".
+		"https://enablerlab.com/resetpassword/".$typ."\r\n\r\n".
+		"Thanks,"."\r\n"."Your friends at EnablerLab";
+
+		$headers = 'From: EnablerLab.com <no-reply@enablerlab.com>' . "\r\n" .
+			'Reply-To:  no-reply@enablerlab.com' . "\r\n" .
+			'X-Mailer: PHP/' . phpversion();
+		mail($data['email'], "Reset Password Link - EnablerLab.com", $message, $headers);
+		$back = ['success'=>true];
+	} else {
+		vlog("EMAIL NOT FOUND");		
+		$back = ['success'=>false];
+    }
+	echo json_encode($back);
+
+// ===== Reset new Pass
+} else if($method == 'POST' && $path == 'changepwd') { 
+    $data = clean($_POST);
+	$data['password'] = password_hash($data['password'],PASSWORD_BCRYPT);
+	vlog("\n\nPOST /chnagepwd ".$data['code']);
+	
+	$sql = "UPDATE users SET token = '', password = '".$data['password']."' WHERE reset LIKE '".$data['code']."';";
+    $result = $db->query($sql);
+    if ($db->affected_rows > 0) {
+		$back = ['success'=>true];
+	} else {
+		$back = ['success'=>false];
+    }
+	echo json_encode($back);
+
+// ===== Check Reset Code
+} else if($method == 'POST' && $path == 'checktochange') { 
+    $data = clean($_POST);
+	vlog("\n\nPOST /checktochange ".$data['code']);
+	
+	$sql = "SELECT fname from users WHERE reset LIKE '".$data['code']."';";
+    $result = $db->query($sql);
+    if ($result->num_rows > 0) {
+		while($r = $result->fetch_assoc()) {
+			$back = ['found'=>true, 'fname'=>$r['fname']];
+		}
+	} else {
+		$back = ['found'=>false];
     }
 	echo json_encode($back);
 
