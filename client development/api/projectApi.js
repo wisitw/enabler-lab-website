@@ -37,6 +37,7 @@ function apiProjectToProject(apiProject) {
       lastName: apiProject.owner.lname,
       email: apiProject.owner.email,
     },
+    view: apiProject.view,
     hasEditPermission: apiProject.owner.hasEditPermission
   }
 }
@@ -296,4 +297,20 @@ export function deleteProjectSuccess() {
     type: types.DELETE_PROJECT_SUCCESS,
     project: {}
   }
+}
+
+export function incrementView(id) {
+  const request = new Request(rootApi.rootEndPoint + 'view/' + id, {
+    method: 'GET',
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    })
+  });
+
+  return fetch(request).then(response => {
+    return response.json();
+  }).catch(error => {
+    return error;
+  });
 }

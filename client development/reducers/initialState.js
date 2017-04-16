@@ -19,6 +19,7 @@ export default {
       lastName: "",
       email: ""
     },
+    view: "",
     hasEditPermission: false
   },
   

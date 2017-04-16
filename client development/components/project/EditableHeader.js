@@ -109,7 +109,7 @@ class EditableHeader extends Component {
         <span className="auto-title left" onClick={ this.handleClick }>{ this.state.value }</span>
         {
           (this.state.hasEditPermission) ? (
-            <span className="auto-price pull-right" onClick={ this.handleDelete }>Delete Project</span>
+            <span className="auto-price pull-right" onClick={ this.handleDelete }><i className="fa fa-trash" aria-hidden="true"></i></span>
           ) : ""
         }
       </h1>

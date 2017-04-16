@@ -18,6 +18,9 @@ class EditableProjectSection extends Component {
         }}></div>
         <span className="info-row">
           { "by " + this.props.project.projectOwner.firstName + " " + this.props.project.projectOwner.lastName }
+          <span className="pull-right">
+            { (parseInt(this.props.project.view) + 1) + " views" }
+          </span>
         </span>
 
         <div className="row">
