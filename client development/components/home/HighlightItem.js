@@ -14,7 +14,7 @@ class HighlightItem extends Component {
             <img className="img-responsive image" src={ this.props.result.projectImage ? this.props.result.projectImage : "images/no_image_available.svg.png" } alt="img" />
           </div>
           <div className="project-name">{ this.props.result.projectName }</div>
-          <div className="author">โดย { + this.props.result.projectOwner.firstName + " " + this.props.result.projectOwner.lastName }</div>
+          <div className="author">โดย { this.props.result.projectOwner.firstName + " " + this.props.result.projectOwner.lastName }</div>
         </div>
       </Link>
       );
