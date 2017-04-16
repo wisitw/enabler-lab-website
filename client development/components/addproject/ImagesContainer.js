@@ -59,7 +59,7 @@ class ImagesContainer extends Component {
     return (
       <div>
         <div className="form-group">
-          <label className="col-sm-4 control-label">Project Images</label>
+          <label className="col-sm-4 control-label">รูปประกอบโปรเจกต์</label>
           <div className="col-sm-7">
             {
               Object.keys(this.state.images).map((key, index) => {
@@ -68,7 +68,7 @@ class ImagesContainer extends Component {
                 )
               })
             }
-            <button className="btn btn-primary" onClick={ this.handleClick } >Add Image</button>
+            <button className="btn btn-primary" onClick={ this.handleClick } >เพิ่มลิงก์รูป</button>
           </div>
         </div>
         <div className="form-group">

@@ -103,8 +103,8 @@ class EditableDescription extends Component {
             <label className="col-sm-4 control-label"></label>
             <div className="col-sm-7">
               <div className="btn-toolbar">
-                <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error } >Save</button>
-                <button className="btn btn-danger" onClick={ this.handleCancel } >Cancel</button>
+                <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error } >บันทึก</button>
+                <button className="btn btn-danger" onClick={ this.handleCancel } >ยกเลิก</button>
               </div>
             </div>
           </div>

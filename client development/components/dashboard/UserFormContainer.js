@@ -22,19 +22,19 @@ class UserFormContainer extends Component {
         <h2 className="title-2"><i className="icon-user"></i> Edit your account </h2>
         <div className="row">
           <div className="col-sm-12">
-            <EditableTextGroup name="firstName" label="First Name" isRequired={ true } />
-            <EditableTextGroup name="lastName" label="Last Name" isRequired={ true } />
+            <EditableTextGroup name="firstName" label="ชื่อ" isRequired={ true } />
+            <EditableTextGroup name="lastName" label="นามสกุล" isRequired={ true } />
 
             <form className="form-horizontal">
               <div className="form-group">
-                <label className="col-sm-4 control-label">Email</label>
+                <label className="col-sm-4 control-label">อีเมล</label>
                 <div className="col-sm-6">
                   <label className="control-label editable-text">{ this.props.user.email }</label>
                 </div>
               </div>
             </form>
 
-            <EditableTextGroup name="password" label="Password" types="password" isRequired={ true } isPassword={ true } />
+            <EditableTextGroup name="password" label="รหัสผ่าน" types="password" isRequired={ true } isPassword={ true } />
           </div>
         </div>
       </div>

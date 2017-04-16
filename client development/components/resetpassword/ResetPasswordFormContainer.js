@@ -51,17 +51,17 @@ class ResetPasswordFormContainer extends Component {
         </div>
         <div className="panel-body">
           <form role="form">
-            <TextFieldGroup name="password" icon="icon-user fa" types="password" label="New Password" onUpdate={ this.updateTextField } setError={ this.handleError } value={ this.state.password } isRequired={ true } />
+            <TextFieldGroup name="password" icon="icon-user fa" types="password" label="รหัสผ่านใหม่" onUpdate={ this.updateTextField } setError={ this.handleError } value={ this.state.password } isRequired={ true } />
             <div className="form-group">
               <label className="col-md-4 control-label"></label>
               <div className="col-md-8">
-                <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.password }>Reset my password</button>
+                <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.password }>เปลี่ยนรหัสผ่าน</button>
               </div>
             </div>
           </form>
         </div>
         <div className="panel-footer">
-          <p className="text-center"><Link to="/signin">Back to Login</Link></p>
+          <p className="text-center"><Link to="/signin">เข้าสู่ระบบ</Link></p>
           <div style={{clear: 'both'}}></div>
         </div>
       </div>

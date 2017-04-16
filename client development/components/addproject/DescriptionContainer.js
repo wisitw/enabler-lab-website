@@ -46,7 +46,7 @@ class DescriptionContainer extends React.Component {
   render() {
     return (
       <div className="form-group">
-        <label className="col-sm-4 control-label">Project Description</label>
+        <label className="col-sm-4 control-label">รายละเอียดของโปรเจกต์</label>
         <div className="col-sm-6">
           <div className="wysiwyg-editor">
             <Editor 

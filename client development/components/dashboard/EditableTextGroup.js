@@ -44,6 +44,12 @@ class EditableTextGroup extends Component {
     }
   }
 
+  handleCancel() {
+    this.setState({
+      isEditing: false
+    });
+  }
+
   handleEmptyValue() {
     const {
       isRequired = false
@@ -81,7 +87,10 @@ class EditableTextGroup extends Component {
           <span className="help-block">{ this.state.error }</span>
         </div>
         <div className="col-sm-2">
-          <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error } >Save</button>
+          <div className="btn-toolbar">
+              <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error } >บันทึก</button>
+              <button className="btn btn-danger" onClick={ this.handleCancel } >ยกเลิก</button>
+            </div>
         </div>
       </div>
     ) : (

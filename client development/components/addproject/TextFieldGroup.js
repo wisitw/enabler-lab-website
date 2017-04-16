@@ -74,7 +74,7 @@ class TextFieldGroup extends Component {
       } else {
         this.props.setError(this.props.name, true);
         this.setState({
-          error: MessageSource.getNotAvailableError("url"),
+          error: MessageSource.getNotAvailableError("ลิงก์"),
           formClass: "has-error"
         });
       }

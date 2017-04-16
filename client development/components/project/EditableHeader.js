@@ -83,7 +83,7 @@ class EditableHeader extends Component {
 
   handleDelete(event) {
     event.preventDefault();
-    if (window.confirm("Are you sure?")) {
+    if (window.confirm("คุณต้องการลบโปรเจกต์นี้จริง ๆ หรือ?")) {
       this.props.actions.deleteProject(this.props.project.id);
     }
   }
@@ -93,13 +93,13 @@ class EditableHeader extends Component {
       <form className="form-horizontal">
         <div className={ "form-group " + this.state.formClass }>
           <div className="col-sm-10">
-            <input type="text" name="projectName" className="form-control" placeholder="Project Name" value={ this.state.value } onChange={ this.handleChange } onBlur={ this.handleBlur } required={ true }/>
+            <input type="text" name="projectName" className="form-control" placeholder="ชื่อโปรเจกต์" value={ this.state.value } onChange={ this.handleChange } onBlur={ this.handleBlur } required={ true }/>
             <span className="help-block">{ this.state.error }</span>
           </div>
           <div className="col-sm-2">
             <div className="btn-toolbar">
-              <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error } >Save</button>
-              <button className="btn btn-danger" onClick={ this.handleCancel } >Cancel</button>
+              <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error } >บันทึก</button>
+              <button className="btn btn-danger" onClick={ this.handleCancel } >ยกเลิก</button>
             </div>
           </div>
         </div>

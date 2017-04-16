@@ -26,7 +26,7 @@ class QueryContainer extends Component {
           filter = (
             <div className="breadcrumb-list text-center-xs">
               <QueryItem name="projectName" value={ this.props.projectName } onClick={ this.handleClear } />
-              from
+              โดย
               <QueryItem name="ownerFirstName" value={ this.props.ownerFirstName } onClick={ this.handleClear } />
               <QueryItem name="ownerLastName" value={ this.props.ownerLastName } onClick={ this.handleClear } /> 
             </div>
@@ -35,7 +35,7 @@ class QueryContainer extends Component {
           filter = (
             <div className="breadcrumb-list text-center-xs">
               <QueryItem name="projectName" value={ this.props.projectName } onClick={ this.handleClear } />
-              from
+              โดย
               <QueryItem name="ownerFirstName" value={ this.props.ownerFirstName } onClick={ this.handleClear } />
             </div>
           );
@@ -45,7 +45,7 @@ class QueryContainer extends Component {
           filter = (
             <div className="breadcrumb-list text-center-xs">
               <QueryItem name="projectName" value={ this.props.projectName } onClick={ this.handleClear } />
-              from
+              โดย
               <QueryItem name="ownerLastName" value={ this.props.ownerLastName } onClick={ this.handleClear } /> 
             </div>
           );
@@ -62,7 +62,7 @@ class QueryContainer extends Component {
         if (this.props.ownerLastName != "") {
           filter = (
             <div className="breadcrumb-list text-center-xs">
-              All Project from
+              โปรเจกต์ทั้งหมด โดย 
               <QueryItem name="ownerFirstName" value={ this.props.ownerFirstName } onClick={ this.handleClear } />
               <QueryItem name="ownerLastName" value={ this.props.ownerLastName } onClick={ this.handleClear } /> 
             </div>
@@ -70,7 +70,7 @@ class QueryContainer extends Component {
         } else {
           filter = (
             <div className="breadcrumb-list text-center-xs">
-              All Project from
+              โปรเจกต์ทั้งหมด โดย 
               <QueryItem name="ownerFirstName" value={ this.props.ownerFirstName } onClick={ this.handleClear } />
             </div>
           );
@@ -79,7 +79,7 @@ class QueryContainer extends Component {
         if (this.props.ownerLastName != "") {
           filter = (
             <div className="breadcrumb-list text-center-xs">
-              All Project from
+              โปรเจกต์ทั้งหมด โดย 
               <QueryItem name="ownerLastName" value={ this.props.ownerLastName } onClick={ this.handleClear } /> 
             </div>
           );
@@ -100,7 +100,7 @@ class QueryContainer extends Component {
         </div>
         <div
           className="pull-right col-sm-6 col-xs-12 text-right text-center-xs listing-view-action">
-          <span className="clear-all-button text-muted" onClick={ this.handleClearAll }>Clear all</span>
+          <span className="clear-all-button text-muted" onClick={ this.handleClearAll }>ล้างทั้งหมด</span>
         </div>
         <div style={{ clear: "both" }}>
         </div>

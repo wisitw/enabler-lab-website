@@ -74,8 +74,8 @@ class AddProjectFormContainer extends Component {
         <div className="row">
           <div className="col-sm-12">
             <form className="form-horizontal">
-              <TextFieldGroup name="projectName" label="Project Name" value={ this.state.project.projectName } isRequired={ true } onUpdate={ this.updateTextField } setError={ this.handleError } />
-              <TextFieldGroup name="projectUrl" label="Project URL" value={ this.state.project.projectUrl } isRequired={ true } onUpdate={ this.updateTextField } isUrl={ true } setError={ this.handleError } />
+              <TextFieldGroup name="projectName" label="ชื่อโปรเจกต์" value={ this.state.project.projectName } isRequired={ true } onUpdate={ this.updateTextField } setError={ this.handleError } />
+              <TextFieldGroup name="projectUrl" label="ลิงก์สำหรับโปรเจกต์" value={ this.state.project.projectUrl } isRequired={ true } onUpdate={ this.updateTextField } isUrl={ true } setError={ this.handleError } />
               <DescriptionContainer onUpdate={ this.updateTextDescription } value={ this.state.project.projectDescription } />
               <ImagesContainer onUpdate={ this.updateImages } value={ this.state.project.projectImages } />
               <div className="form-group">

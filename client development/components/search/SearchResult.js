@@ -25,7 +25,7 @@ class SearchResult extends Component {
             </h4>
             <span className="info-row">
               <span className="item-location">
-                { "by " + this.props.result.projectOwner.firstName + this.props.result.projectOwner.lastName }
+                { "โดย " + this.props.result.projectOwner.firstName + this.props.result.projectOwner.lastName }
               </span>
               <span className="salary pull-right">
                 { this.props.result.view + " views" }
@@ -37,7 +37,7 @@ class SearchResult extends Component {
             <div className="job-actions">
               <Link to={ "/project/" + this.props.result.url }>
                 <div className="save-job">
-                  See More
+                  ดูรายละเอียด
                 </div>
               </Link>
             </div>

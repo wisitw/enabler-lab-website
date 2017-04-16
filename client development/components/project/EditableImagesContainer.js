@@ -90,7 +90,7 @@ class EditableImagesContainer extends Component {
       <div>
         <form className="form-horizontal">
           <div className="form-group">
-            <label className="col-sm-4 control-label">Project Images</label>
+            <label className="col-sm-4 control-label">รูปประกอบโปรเจกต์</label>
             <div className="col-sm-7">
               {
                 Object.keys(this.state.images).map((key, index) => {
@@ -100,9 +100,9 @@ class EditableImagesContainer extends Component {
                 })
               }
               <div className="btn-toolbar">
-                <button className="btn btn-primary" onClick={ this.handleAddClick } >Add Image</button>
-                <button className="btn btn-primary" onClick={ this.handleSubmit } >Save</button>
-                <button className="btn btn-danger" onClick={ this.handleCancel } >Cancel</button>
+                <button className="btn btn-primary" onClick={ this.handleAddClick } >เพิ่มรูป</button>
+                <button className="btn btn-primary" onClick={ this.handleSubmit } >บันทึก</button>
+                <button className="btn btn-danger" onClick={ this.handleCancel } >ยกเลิก</button>
               </div>
             </div>
           </div>

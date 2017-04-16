@@ -12,7 +12,7 @@ const AboutUsPage = () => {
           <div className="dtable hw100">
             <div className="dtable-cell hw100">
               <div className="container text-center">
-                <h1 className="intro-title animated fadeInDown"> About ENABLER LAB </h1>
+                <h1 className="intro-title animated fadeInDown"> ENABLER LAB คืออะไร? </h1>
               </div>
             </div>
           </div>
@@ -40,40 +40,6 @@ const AboutUsPage = () => {
               </div>
               <div className="col-sm-6">
                 <img src="/images/info.png" alt="imfo" className="img-responsive" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="parallaxbox about-parallax-bottom">
-        <div className="container">
-          <div className="row text-center featuredbox">
-            <div className="col-sm-4 xs-gap">
-              <div className="inner">
-                <div className="icon-box-wrap"><i className="icon-book-open ln-shadow-box shape-3"></i></div>
-                <h3 className="title-4">Customer service</h3>
-                <p>Ein herausragendes Beispiel für Story-Telling im modernen Webdesign. et suscipit sapien
-                posuere quis. Maecenas ut iaculis nunc, eget efficitur ipsum. Nam vitae hendrerit
-                tortor.</p>
-              </div>
-            </div>
-            <div className="col-sm-4 xs-gap">
-              <div className="inner">
-                <div className="icon-box-wrap"><i className=" icon-lightbulb ln-shadow-box shape-6"></i></div>
-                <h3 className="title-4">Seller satisfaction</h3>
-                <p>Ein herausragendes Beispiel für Story-Telling im modernen Webdesign. et suscipit sapien
-                posuere quis. Maecenas ut iaculis nunc, eget efficitur ipsum. Nam vitae hendrerit tortor.
-                .</p>
-              </div>
-            </div>
-            <div className="col-sm-4 xs-gap">
-              <div className="inner">
-                <div className="icon-box-wrap"><i className="icon-megaphone ln-shadow-box shape-5"></i></div>
-                <h3 className="title-4">Best Offers </h3>
-                <p>Ein herausragendes Beispiel für Story-Telling im modernen Webdesign. et suscipit sapien
-                  posuere quis. Maecenas ut iaculis nunc, eget efficitur ipsum. Nam vitae hendrerit
-                  tortor. </p>
               </div>
             </div>
           </div>

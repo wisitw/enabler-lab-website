@@ -69,7 +69,7 @@ class SearchBarContainer extends Component {
             list="searchList"
             name="ads"
             className="form-control has-icon"
-            placeholder="I'm looking for a ..."
+            placeholder="ฉันกำลังมองหา..."
             value={ this.state.keyword }
             onChange={ this.handleChange } />
 
@@ -85,7 +85,7 @@ class SearchBarContainer extends Component {
         <div className="col-lg-4 col-sm-4 search-col">
           <button className="btn btn-primary btn-search btn-block" onClick={ this.handleSubmit } >
             <i className="icon-search"></i>
-            <strong>Search</strong>
+            <strong>ค้นหา</strong>
           </button>
         </div>
       </div>

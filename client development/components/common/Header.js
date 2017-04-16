@@ -20,24 +20,24 @@ class Header extends Component {
     const rightNav = (localStorage.getItem("enablerT") !== null) ? (
       <Nav pullRight>
         <NavItem eventKey={1}>
-          <Link to="/project/add" activeClassName="active">Add Project</Link>
+          <Link to="/project/add" activeClassName="active">เพิ่มโปรเจกต์ใหม่</Link>
         </NavItem>
         <NavItem eventKey={2}>
           <Link to="/dashboard" activeClassName="active">{ this.props.user.firstName + ' ' + this.props.user.lastName }</Link>
         </NavItem>
         <li role="presentation" className="">
           <a role="button" href="#">
-            <a href="#" className="active" onClick={ this.signout }>Logout</a>
+            <a href="#" className="active" onClick={ this.signout }>ออกจากระบบ</a>
           </a>
         </li>
       </Nav>
     ) : (
       <Nav pullRight>
         <NavItem eventKey={1}>
-          <Link to="/signin" activeClassName="active">Login</Link>
+          <Link to="/signin" activeClassName="active">เข้าสู่ระบบ</Link>
         </NavItem>
         <NavItem eventKey={2}>
-          <Link to="/signup" activeClassName="active">Signup</Link>
+          <Link to="/signup" activeClassName="active">สมัครสมาชิก</Link>
         </NavItem>
       </Nav>
     );

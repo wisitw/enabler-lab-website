@@ -44,10 +44,8 @@ class SearchResultSectionContainer extends Component {
             <div className="col-lg-12  box-title no-border">
               <div className="inner">
                 <h2>
-                  <span>Search
-                  </span>
-                  Result
-                  <small>from Enabler Lab</small>
+                  ผลการค้นหา 
+                  <small> จาก Enabler Lab</small>
                 </h2>
               </div>
             </div>
@@ -65,13 +63,13 @@ class SearchResultSectionContainer extends Component {
         </div>
         <div className="post-promo text-center">
           <h2>
-            Don't see what you're looking for?
+            ไม่เจอโปรเจกต์ที่คุณต้องการ?
           </h2>
           <h5>
-            Create new Project!
+            คุณสามารถเพิ่มโปรเจกต์ใหม่ได้นะ!
           </h5>
           <Link to="/project/add" className="btn btn-lg btn-border btn-post btn-danger">
-            Create new Project
+            เพิ่มโปรเจกต์ใหม่!
           </Link>
         </div>
       </div>

@@ -62,18 +62,18 @@ class SignInFormContainer extends Component {
         </div>
         <div className="panel-body">
           <form role="form">
-            <TextFieldGroup name="email" icon="icon-user fa" types="email" label="Email" onUpdate={ this.updateTextField } setError={ this.handleError } value={ this.state.user.email } isRequired={ true } />
-            <TextFieldGroup name="password" icon="icon-lock fa" types="password" label="Password" onUpdate={ this.updateTextField } setError={ this.handleError } isRequired={ true } />
+            <TextFieldGroup name="email" icon="icon-user fa" types="email" label="อีเมบ" onUpdate={ this.updateTextField } setError={ this.handleError } value={ this.state.user.email } isRequired={ true } />
+            <TextFieldGroup name="password" icon="icon-lock fa" types="password" label="รหัสผ่าน" onUpdate={ this.updateTextField } setError={ this.handleError } isRequired={ true } />
             <div className="form-group">
               <label className="col-md-4 control-label"></label>
               <div className="col-md-8">
-                <button className="btn btn-primary" onClick={ this.handleSubmit }>Sign In</button>
+                <button className="btn btn-primary" onClick={ this.handleSubmit }>เข้าสู่ระบบ</button>
               </div>
             </div>
           </form>
         </div>
         <div className="panel-footer">
-          <p className="text-center pull-right"><Link to="/forgotpassword">Lost your password?</Link></p>
+          <p className="text-center pull-right"><Link to="/forgotpassword">ลืมรหัสผ่าน?</Link></p>
           <div style={{clear: 'both'}}></div>
         </div>
       </div>

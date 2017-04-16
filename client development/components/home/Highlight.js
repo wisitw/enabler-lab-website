@@ -43,7 +43,7 @@ class HighLight extends Component {
             <div className="row row-featured">
               <div className="col-lg-12  box-title ">
                 <div className="inner">
-                  <h2><span>Highlight </span>Projects</h2>
+                  <h2>โปรเจกต์ <span>ที่กำลังได้รับความนิยม </span></h2>
                 </div>
               </div>
               <div style={{clear: 'both'}}>

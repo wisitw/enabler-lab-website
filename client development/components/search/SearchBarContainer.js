@@ -36,12 +36,12 @@ class SearchBarContainer extends Component {
           backgroundPosition: 'center center'
         }}>
           <div className="container text-center">
-            <TextFieldGroup name="projectName" placeholder="Project Name" value={ this.props.projectName } onUpdate={ this.updateTextField } />
-            <TextFieldGroup name="ownerFirstName" placeholder="Owner First Name" value={ this.props.ownerFirstName } onUpdate={ this.updateTextField } />
-            <TextFieldGroup name="ownerLastName" placeholder="Owner Last Name" value={ this.props.ownerLastName } onUpdate={ this.updateTextField } />
+            <TextFieldGroup name="projectName" placeholder="ชื่อโปรเจกต์" value={ this.props.projectName } onUpdate={ this.updateTextField } />
+            <TextFieldGroup name="ownerFirstName" placeholder="ชื่อเจ้าของโปรเจกต์" value={ this.props.ownerFirstName } onUpdate={ this.updateTextField } />
+            <TextFieldGroup name="ownerLastName" placeholder="นามสกุลเจ้าของโปรเจกต์" value={ this.props.ownerLastName } onUpdate={ this.updateTextField } />
             <div className="col-sm-3">
               <button className="btn btn-block btn-primary" onClick={ this.handleSubmit } >
-                Search <i className="fa fa-search"></i>
+                <i className="fa fa-search"></i> ค้นหา 
               </button>
             </div>
           </div>

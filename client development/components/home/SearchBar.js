@@ -13,10 +13,10 @@ class SearchBar extends Component {
           <div className="dtable-cell hw100">
             <div className="container text-center">
               <h1 className="intro-title animated fadeInDown">
-                Visit Enabler's Project
+                Enabler ปลดพันธนาการในชีวิตคุณ
               </h1>
               <p className="sub animateme fittext3 animated fadeIn">
-                Visit Enabler's Project on EnablerLab in Minutes
+                รับชมโปรเจกต์ของเราที่จะมอบความสุขให้กับทุกคน
               </p>
               <SearchBarContainer/>
             </div>

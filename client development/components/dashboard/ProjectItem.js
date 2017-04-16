@@ -9,7 +9,7 @@ const ProjectItem = ({ projectName, author, image = "images/no_image_available.s
           <img className="img-responsive image" src={ image } alt="img" />
         </div>
         <div className="project-name">{ projectName }</div>
-        <div className="author">by { author }</div>
+        <div className="author">โดย { author }</div>
       </Link>
     </div>
   );

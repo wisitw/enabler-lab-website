@@ -44,18 +44,18 @@ class SignUpFormContainer extends Component {
   render() {
     return (
       <div className="inner-box category-content">
-        <h2 className="title-2"><i className="icon-user-add"></i> Create your account, Its free </h2>
+        <h2 className="title-2"><i className="icon-user-add"></i> สมัครสมาชิกเลย ฟรี! </h2>
         <div className="row">
           <div className="col-sm-12">
             <form className="form-horizontal">
-              <TextFieldGroup name="firstName" label="First Name" value={ this.state.user.firstName } isRequired={ true } onUpdate={ this.updateTextField } setError={ this.handleError } />
-              <TextFieldGroup name="lastName" label="Last Name" value={ this.state.user.lastName } isRequired={ true } onUpdate={ this.updateTextField } setError={ this.handleError } />
-              <TextFieldGroup name="email" types="email" label="Email" value={ this.state.user.email } isRequired={ true } onUpdate={ this.updateTextField } isEmail={ true } setError={ this.handleError } />
-              <TextFieldGroup name="password" types="password" label="Password" value={ this.state.user.password } isRequired={ true } onUpdate={ this.updateTextField } setError={ this.handleError }  />
+              <TextFieldGroup name="firstName" label="ชื่อ" value={ this.state.user.firstName } isRequired={ true } onUpdate={ this.updateTextField } setError={ this.handleError } />
+              <TextFieldGroup name="lastName" label="นามสกุล" value={ this.state.user.lastName } isRequired={ true } onUpdate={ this.updateTextField } setError={ this.handleError } />
+              <TextFieldGroup name="email" types="อีเมล" label="Email" value={ this.state.user.email } isRequired={ true } onUpdate={ this.updateTextField } isEmail={ true } setError={ this.handleError } />
+              <TextFieldGroup name="password" types="รหัสผ่าน" label="Password" value={ this.state.user.password } isRequired={ true } onUpdate={ this.updateTextField } setError={ this.handleError }  />
               <div className="form-group">
                 <label className="col-sm-4 control-label"></label>
                 <div className="col-sm-6">
-                  <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.firstName || this.state.error.lastName  || this.state.error.email  || this.state.error.password } >Sign Up</button>
+                  <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.firstName || this.state.error.lastName  || this.state.error.email  || this.state.error.password } >สมัครสมาชิก</button>
                 </div>
               </div>
             </form>

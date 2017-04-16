@@ -56,14 +56,14 @@ class ForgotPasswordFormContainer extends Component {
         <div className="panel-body">
           {
             this.state.sent ? (
-              <p>We've sent you an instruction email. Please check your inbox and follow the instruction listed.</p>
+              <p>เราได้ส่งอีเมลแนะนำขั้นตอนการกู้คืนรหัสผ่านให้คุณแล้ว โปรดตรวจสอบกล่องข้อความของคุณ</p>
             ) : (
               <form role="form">
-                <TextFieldGroup name="email" icon="icon-user fa" types="email" label="Email" onUpdate={ this.updateTextField } setError={ this.handleError } value={ this.state.email } isRequired={ true } />
+                <TextFieldGroup name="email" icon="icon-user fa" types="email" label="รหัสผ่าน" onUpdate={ this.updateTextField } setError={ this.handleError } value={ this.state.email } isRequired={ true } />
                 <div className="form-group">
                   <label className="col-md-4 control-label"></label>
                   <div className="col-md-8">
-                    <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.email }>Send me my password</button>
+                    <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.email }>ส่งอีเมลกู้คืนรหัสผ่าน</button>
                   </div>
                 </div>
               </form>

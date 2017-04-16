@@ -30,10 +30,10 @@ class ImageContainer extends Component {
     return (
       <div className="form-group">
         <div className="col-sm-10">
-          <input type="url" name="imageUrl" className="form-control" placeholder="Image URL" value={ this.state.imageUrl } onChange={ this.handleChange } required={ true }/>
+          <input type="url" name="imageUrl" className="form-control" placeholder="ลิงก์รูป" value={ this.state.imageUrl } onChange={ this.handleChange } required={ true }/>
         </div>
         <div className="col-sm-2">
-          <button className="btn btn-danger" onClick={ this.handleSubmit } disabled={ this.state.error } >Remove</button>
+          <button className="btn btn-danger" onClick={ this.handleSubmit } disabled={ this.state.error } >ลบรูป</button>
         </div>
       </div>
     );

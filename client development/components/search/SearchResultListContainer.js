@@ -31,7 +31,7 @@ class SearchResultListContainer extends Component {
           {
             this.props.hasNext ? (
               <div onClick={ this.handleClick }>
-                Load More..
+                ดูผลลัพธ์เพิ่มเติม..
               </div>
             ) : ""
           }

@@ -35,7 +35,7 @@ class UserProject extends Component {
 
     return (
       <div className="inner-box category-content">
-        <h2 className="title-2"><i className="icon-docs"></i> Your Project </h2>
+        <h2 className="title-2"><i className="icon-docs"></i> โปรเจกต์ของคุณ </h2>
         <div className="row">
           <div className="col-sm-12">
             <div className="side-padding-36">

@@ -11,8 +11,8 @@ class SignInPage extends Component {
             <div className="col-sm-5 login-box">
               <SignInFormContainer />
               <div className="login-box-btm text-center">
-                <p> Don't have an account? <br />
-                <Link to="/signup"><strong>Sign Up !</strong></Link></p>
+                <p> ยังไม่ได้สมัครสมาชิก? <br />
+                <Link to="/signup"><strong>สมัครเลย!</strong></Link></p>
               </div>
             </div>
           </div>

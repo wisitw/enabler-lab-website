@@ -18,21 +18,23 @@ class AddProjectPage extends Component {
             <div className="col-md-3 reg-sidebar">
               <div className="reg-sidebar-inner text-center">
                 <div className="promo-text-box"><i className=" icon-picture fa fa-4x icon-color-1"></i>
-                  <h3><strong>Post a Free Classified</strong></h3>
-                  <p> Post your free online classified ads with us. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                  <h3><strong>เปิดโอกาสใหม่ในชีวิตของคุณ</strong></h3>
+                  <p>
+                    โปรเจกต์ของคุณอาจเป็นสิ่งที่คนบางคนไฝ่หามาตลอด และอาจเป็นโอกาสที่คุณใฝ่หาตลอดมาเช่นกัน ถ้าคุณพร้อมแล้วก็ลงมือเลย!
+                  </p>
                 </div>
                 <div className="panel sidebar-panel">
                   <div className="panel-heading uppercase">
-                    <small><strong>How to sell quickly?</strong></small>
+                    <small><strong>ทำอย่างไรให้โปรเจกต์น่าสนใจ?</strong></small>
                   </div>
                   <div className="panel-content">
                     <div className="panel-body text-left">
                       <ul className="list-check">
-                        <li> Use a brief title and description of the item</li>
-                        <li> Make sure you post in the correct category</li>
-                        <li> Add nice photos to your ad</li>
-                        <li> Put a reasonable price</li>
-                        <li> Check the item before publish</li>
+                        <li> ใช้ชื่อที่กระชับและสื่อความหมาย</li>
+                        <li> กรอกรายละเอียดให้ชัดเจน</li>
+                        <li> เพิ่มรูปประกอบที่น่าสนใจ</li>
+                        <li> แนะนำโปรเจกต์นี้กับเพื่อน ๆ ของคุณ</li>
+                        <li> ตรวจสอบความถูกต้องทุกครั้ง</li>
                       </ul>
                     </div>
                   </div>

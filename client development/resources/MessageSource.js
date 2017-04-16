@@ -1,7 +1,7 @@
 export function getNotAvailableError(field) {
-  return `This ${field} is not available`;
+  return `${field}นี้ไม่สามารถใช้ได้`;
 }
 
 export function getAuthenticationError() {
-  return `Your email and/or password is incorrect`
+  return `อีเมล และ/หรือ รหัสผ่านของคุณไม่ถูกต้อง`
 }

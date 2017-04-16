@@ -35,22 +35,22 @@ class ListFilterGroup extends Component {
         <div className="filter-date filter-content">
           <ul>
             <li key="choice1">
-              <ListFilterItem name="NAMEASC" label="Project Name (A-Z)" value="NAMEASC" checked={ this.state.value == "NAMEASC" } onClick={ this.handleChange } />
+              <ListFilterItem name="NAMEASC" label="ชื่อโปรเจกต์ (ก-ฮ)" value="NAMEASC" checked={ this.state.value == "NAMEASC" } onClick={ this.handleChange } />
             </li>
             <li key="choice2">
-              <ListFilterItem name="NAMEDSC" label="Project Name (Z-A)" value="NAMEDSC" checked={ this.state.value == "NAMEDSC" } onClick={ this.handleChange } />
+              <ListFilterItem name="NAMEDSC" label="ชื่อโปรเจกต์ (ฮ-ก)" value="NAMEDSC" checked={ this.state.value == "NAMEDSC" } onClick={ this.handleChange } />
             </li>
             <li key="choice3">
-              <ListFilterItem name="DATEDSC" label="Newest" value="DATEDSC" checked={ this.state.value == "DATEDSC" } onClick={ this.handleChange } />
+              <ListFilterItem name="DATEDSC" label="ใหม่ล่าสุด" value="DATEDSC" checked={ this.state.value == "DATEDSC" } onClick={ this.handleChange } />
             </li>
             <li key="choice4">
-              <ListFilterItem name="DATEASC" label="Oldest" value="DATEASC" checked={ this.state.value == "DATEASC" } onClick={ this.handleChange } />
+              <ListFilterItem name="DATEASC" label="เก่าที่สุด" value="DATEASC" checked={ this.state.value == "DATEASC" } onClick={ this.handleChange } />
             </li>
             <li key="choice5">
-              <ListFilterItem name="VIEWDSC" label="Most Popular" value="VIEWDSC" checked={ this.state.value == "VIEWDSC" } onClick={ this.handleChange } />
+              <ListFilterItem name="VIEWDSC" label="ได้รับความนิยมมาก" value="VIEWDSC" checked={ this.state.value == "VIEWDSC" } onClick={ this.handleChange } />
             </li>
             <li key="choice6">
-              <ListFilterItem name="VIEWASC" label="Least Popular " value="VIEWASC" checked={ this.state.value == "VIEWASC" } onClick={ this.handleChange } />
+              <ListFilterItem name="VIEWASC" label="ได้รับความนิยมน้อย" value="VIEWASC" checked={ this.state.value == "VIEWASC" } onClick={ this.handleChange } />
             </li>
           </ul>
         </div>

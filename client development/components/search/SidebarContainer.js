@@ -40,7 +40,7 @@ class SidebarContainer extends Component {
       <div className="col-sm-3 page-sidebar mobile-filter-sidebar">
         <aside>
           <div className="inner-box">
-            <ListFilterGroup name="searchOption" label="Order By.." order={ this.props.order } orderBy={ this.props.orderBy } onChange={ this.handleChange } />
+            <ListFilterGroup name="searchOption" label="เรียงตาม.." order={ this.props.order } orderBy={ this.props.orderBy } onChange={ this.handleChange } />
             <div style={{clear: 'both'}}></div>
           </div>
         </aside>
