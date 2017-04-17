@@ -11,6 +11,7 @@ class EditableTextGroup extends Component {
       isEditing: false,
       formClass: "",
       error: "",
+      notTyped: true
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -24,7 +25,8 @@ class EditableTextGroup extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState({
       isEditing: false,
-      value: nextProps.user[this.props.name]
+      value: nextProps.user[this.props.name],
+      notTyped: true
     });
   }
 
@@ -36,7 +38,8 @@ class EditableTextGroup extends Component {
 
   handleChange(event) {
     this.setState({
-      value: event.target.value
+      value: event.target.value,
+      notTyped: false
     })
   }
 
@@ -49,7 +52,9 @@ class EditableTextGroup extends Component {
   handleCancel(event) {
     event.preventDefault();
     this.setState({
-      isEditing: false
+      value: this.props.user[this.props.name],
+      isEditing: false,
+      notTyped: true
     });
   }
 
@@ -91,8 +96,8 @@ class EditableTextGroup extends Component {
         </div>
         <div className="col-sm-4">
           <div className="btn-toolbar">
-              <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error } >บันทึก</button>
-              <button className="btn btn-danger" onClick={ this.handleCancel } >ยกเลิก</button>
+              <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.notTyped || this.state.error } >บันทึก</button>
+              <button className="btn btn-danger" onClick={ this.handleCancel } disabled={ this.state.error } >ยกเลิก</button>
             </div>
         </div>
       </div>

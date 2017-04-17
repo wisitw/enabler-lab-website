@@ -12,7 +12,8 @@ class ForgotPasswordFormContainer extends Component {
       error: {
 
       },
-      sent: false
+      sent: false,
+      notTyped: true
     };
     this.updateTextField = this.updateTextField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,13 +22,15 @@ class ForgotPasswordFormContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      user: nextProps.user
+      user: nextProps.user,
+      notTyped: true
     });
   }
 
   updateTextField(key, value) {
     let newState = Object.assign({}, this.state);
     newState[key] = value;
+    newState.notTyped = false;
     this.setState(newState);
   }
 
@@ -63,7 +66,7 @@ class ForgotPasswordFormContainer extends Component {
                 <div className="form-group">
                   <label className="col-md-4 control-label"></label>
                   <div className="col-md-8">
-                    <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.email }>ส่งอีเมลกู้คืนรหัสผ่าน</button>
+                    <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.notTyped || this.state.error.email }>ส่งอีเมลกู้คืนรหัสผ่าน</button>
                   </div>
                 </div>
               </form>

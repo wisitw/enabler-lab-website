@@ -13,7 +13,8 @@ class ResetPasswordFormContainer extends Component {
       error: {
 
       },
-      code: this.props.code
+      code: this.props.code,
+      notTyped: true
     };
     this.updateTextField = this.updateTextField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,6 +28,7 @@ class ResetPasswordFormContainer extends Component {
   updateTextField(key, value) {
     let newState = Object.assign({}, this.state);
     newState[key] = value;
+    newState.notTyped = false;
     this.setState(newState);
   }
 
@@ -55,7 +57,7 @@ class ResetPasswordFormContainer extends Component {
             <div className="form-group">
               <label className="col-md-4 control-label"></label>
               <div className="col-md-8">
-                <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.password }>เปลี่ยนรหัสผ่าน</button>
+                <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.notTyped || this.state.error.password }>เปลี่ยนรหัสผ่าน</button>
               </div>
             </div>
           </form>

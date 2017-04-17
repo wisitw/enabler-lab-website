@@ -14,7 +14,8 @@ class SignInFormContainer extends Component {
       error: {
 
       },
-      signInError: this.props.signInError
+      signInError: this.props.signInError,
+      notTyped: true
     };
     this.updateTextField = this.updateTextField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,13 +25,15 @@ class SignInFormContainer extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState({
       user: nextProps.user,
-      signInError: nextProps.signInError
+      signInError: nextProps.signInError,
+      notTyped: true
     });
   }
 
   updateTextField(key, value) {
     let newState = Object.assign({}, this.state);
     newState.user[key] = value;
+    newState.notTyped = false;
     this.setState(newState);
   }
 
@@ -67,7 +70,7 @@ class SignInFormContainer extends Component {
             <div className="form-group">
               <label className="col-md-4 control-label"></label>
               <div className="col-md-8">
-                <button className="btn btn-primary" onClick={ this.handleSubmit }>เข้าสู่ระบบ</button>
+                <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.notTyped || this.state.error.email || this.state.error.password } >เข้าสู่ระบบ</button>
               </div>
             </div>
           </form>

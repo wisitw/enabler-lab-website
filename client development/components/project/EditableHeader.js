@@ -12,6 +12,7 @@ class EditableHeader extends Component {
       isEditing: false,
       formClass: "",
       error: "",
+      notTyped: true
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -27,7 +28,8 @@ class EditableHeader extends Component {
     this.setState({
       value: nextProps.project.projectName,
       hasEditPermission: nextProps.project.hasEditPermission,
-      isEditing: false
+      isEditing: false,
+      notTyped: true
     });
   }
 
@@ -41,7 +43,8 @@ class EditableHeader extends Component {
 
   handleChange(event) {
     this.setState({
-      value: event.target.value
+      value: event.target.value,
+      notTyped: false
     })
   }
 
@@ -77,7 +80,9 @@ class EditableHeader extends Component {
   handleCancel(event) {
     event.preventDefault();
     this.setState({
-      isEditing: false
+      value: this.props.project.projectName,
+      isEditing: false,
+      notTyped: true
     });
   }
 
@@ -98,7 +103,7 @@ class EditableHeader extends Component {
           </div>
           <div className="col-sm-2">
             <div className="btn-toolbar">
-              <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error } >บันทึก</button>
+              <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.notTyped || this.state.error } >บันทึก</button>
               <button className="btn btn-danger" onClick={ this.handleCancel } >ยกเลิก</button>
             </div>
           </div>

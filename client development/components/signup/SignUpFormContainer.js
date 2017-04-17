@@ -11,7 +11,8 @@ class SignUpFormContainer extends Component {
       user: this.props.user,
       error: {
 
-      }
+      },
+      notTyped: true
     };
     this.updateTextField = this.updateTextField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,13 +21,15 @@ class SignUpFormContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      user: nextProps.user
+      user: nextProps.user,
+      notTyped: true
     });
   }
 
   updateTextField(key, value) {
     let newState = Object.assign({}, this.state);
     newState.user[key] = value;
+    newState.notTyped = false;
     this.setState(newState);
   }
 
@@ -55,7 +58,7 @@ class SignUpFormContainer extends Component {
               <div className="form-group">
                 <label className="col-sm-4 control-label"></label>
                 <div className="col-sm-6">
-                  <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.firstName || this.state.error.lastName  || this.state.error.email  || this.state.error.password } >สมัครสมาชิก</button>
+                  <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.notTyped || this.state.error.firstName || this.state.error.lastName  || this.state.error.email  || this.state.error.password } >สมัครสมาชิก</button>
                 </div>
               </div>
             </form>

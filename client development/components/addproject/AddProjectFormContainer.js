@@ -14,7 +14,8 @@ class AddProjectFormContainer extends Component {
       project: this.props.project,
       error: {
 
-      }
+      },
+      notTyped: true
     };
 
     this.updateTextField = this.updateTextField.bind(this);
@@ -30,13 +31,15 @@ class AddProjectFormContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      project: nextProps.project
+      project: nextProps.project,
+      notTyped: true
     });
   }
 
   updateTextField(key, value) {
     let newState = Object.assign({}, this.state);
     newState.project[key] = value;
+    newState.notTyped = false;
     this.setState(newState);
   }
 
@@ -49,17 +52,15 @@ class AddProjectFormContainer extends Component {
   updateTextDescription(htmlText) {
     let newState = Object.assign({}, this.state);
     newState.project.projectDescription = htmlText;
-    this.setState({
-      newState
-    });
+    newState.notTyped = false;
+    this.setState(newState);
   }
 
   updateImages(images) {
     let newState = Object.assign({}, this.state);
     newState.project.projectImages = images;
-    this.setState({
-      newState
-    });
+    newState.notTyped = false;
+    this.setState(newState);
   }
 
   handleSubmit(event) {
@@ -81,7 +82,7 @@ class AddProjectFormContainer extends Component {
               <div className="form-group">
                 <label className="col-sm-4 control-label"></label>
                 <div className="col-sm-6">
-                  <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error.projectName || this.state.error.projectUrl } >Add Project</button>
+                  <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.notTyped || this.state.error.projectName || this.state.error.projectUrl } >Add Project</button>
                 </div>
               </div>
             </form>
