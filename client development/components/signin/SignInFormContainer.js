@@ -62,7 +62,7 @@ class SignInFormContainer extends Component {
         </div>
         <div className="panel-body">
           <form role="form">
-            <TextFieldGroup name="email" icon="icon-user fa" types="email" label="อีเมบ" onUpdate={ this.updateTextField } setError={ this.handleError } value={ this.state.user.email } isRequired={ true } />
+            <TextFieldGroup name="email" icon="icon-user fa" types="email" label="อีเมล" onUpdate={ this.updateTextField } setError={ this.handleError } value={ this.state.user.email } isRequired={ true } />
             <TextFieldGroup name="password" icon="icon-lock fa" types="password" label="รหัสผ่าน" onUpdate={ this.updateTextField } setError={ this.handleError } isRequired={ true } />
             <div className="form-group">
               <label className="col-md-4 control-label"></label>
