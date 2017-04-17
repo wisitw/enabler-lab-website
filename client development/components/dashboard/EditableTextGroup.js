@@ -18,11 +18,13 @@ class EditableTextGroup extends Component {
     this.handleBlur = this.handleBlur.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEmptyValue = this.handleEmptyValue.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      isEditing: false
+      isEditing: false,
+      value: nextProps.user[this.props.name]
     });
   }
 
@@ -44,7 +46,8 @@ class EditableTextGroup extends Component {
     }
   }
 
-  handleCancel() {
+  handleCancel(event) {
+    event.preventDefault();
     this.setState({
       isEditing: false
     });
@@ -82,11 +85,11 @@ class EditableTextGroup extends Component {
 
     const willDisplay = this.state.isEditing ? (
       <div>
-        <div className="col-sm-6">
+        <div className="col-sm-4">
           <input type={ types } name={ this.props.name } className="form-control" placeholder={ this.props.label } value={ this.state.value } onChange={ this.handleChange } onBlur={ this.handleBlur } required={ isRequired }/>
           <span className="help-block">{ this.state.error }</span>
         </div>
-        <div className="col-sm-2">
+        <div className="col-sm-4">
           <div className="btn-toolbar">
               <button className="btn btn-primary" onClick={ this.handleSubmit } disabled={ this.state.error } >บันทึก</button>
               <button className="btn btn-danger" onClick={ this.handleCancel } >ยกเลิก</button>
@@ -94,13 +97,13 @@ class EditableTextGroup extends Component {
         </div>
       </div>
     ) : (
-      <div className="col-sm-6">
+      <div className="col-sm-6" onClick={ this.handleClick }>
         <label className="control-label editable-text">{ isPassword ? "***" : this.state.value } </label>
       </div>
     );
 
     return (
-      <form className="form-horizontal" onClick={ this.handleClick }>
+      <form className="form-horizontal">
         <div className={ "form-group " + this.state.formClass }>
           <label className="col-sm-4 control-label">{ this.props.label }</label>
           { willDisplay }
