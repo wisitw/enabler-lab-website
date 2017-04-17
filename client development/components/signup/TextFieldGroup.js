@@ -65,7 +65,6 @@ class TextFieldGroup extends Component {
 
   handleEmailValue(url) {
     userApi.isEmailAvailable(url).then(response => {
-      console.log(response);
       if (response.available) {
         this.props.setError(this.props.name, false);
         this.setState({

@@ -1,12 +1,14 @@
-export default {
-  user: {
+export function getNewUser() {
+  return {
     firstName: "",
     lastName: "",
     email: "",
     password: ""
-  },
+  }
+};
 
-  project: {
+export function getNewProject() {
+  return {
     id: "",
     projectName: "",
     projectUrl: "",
@@ -21,17 +23,23 @@ export default {
     },
     view: "",
     hasEditPermission: false
-  },
-  
-  projects: {
+  };
+}
+
+export function getNewProjects() {
+  return {
     projects: []
-  },
+  };
+}
 
-  searchAutoComplete: {
-    
-  },
+export function getNewSearchAutoComplete() {
+  return {
 
-  advanceSearch: {
+  };
+}
+
+export function getNewAdvanceSearch() {
+  return {
     projectName: "",
     ownerFirstName: "",
     ownerLastName: "",
@@ -43,5 +51,5 @@ export default {
     start: 0,
     length: 0,
     hasNext: false
-  }
+  };
 }

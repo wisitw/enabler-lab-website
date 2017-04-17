@@ -4,14 +4,15 @@ import { bindActionCreators } from 'redux';
 import TextFieldGroup from './TextFieldGroup';
 import DescriptionContainer from './DescriptionContainer';
 import ImagesContainer from './ImagesContainer';
-import * as projectActions from '../../actions/projectActions'
+import * as projectActions from '../../actions/projectActions';
+import * as initialState from '../../reducers/initialState';
 
 class AddProjectFormContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      project: this.props.project,
+      project: initialState.getNewProject(),
       error: {
 
       },
@@ -31,7 +32,7 @@ class AddProjectFormContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      project: nextProps.project,
+      project: initialState.getNewProject(),
       notTyped: true
     });
   }

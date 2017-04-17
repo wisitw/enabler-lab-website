@@ -3,7 +3,6 @@ import * as projectApi from '../api/projectApi';
 export function addProject(project) {
   return function(dispatch) {
     return projectApi.addProject(project, localStorage.getItem("enablerT")).then(response => {
-      console.log(response);
       if (response) {
         dispatch(projectApi.addProjectSuccess(project, response.project_id));
       } else {

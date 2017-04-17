@@ -8,7 +8,8 @@ class DescriptionContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    const blocksFromHTML = convertFromHTML(props.value);
+    // const blocksFromHTML = convertFromHTML(props.value);
+    const blocksFromHTML = convertFromHTML("");
     const state = ContentState.createFromBlockArray(
       blocksFromHTML.contentBlocks,
       blocksFromHTML.entityMap
@@ -34,13 +35,19 @@ class DescriptionContainer extends React.Component {
 
   handleChange(editorState) {
     this.setState({editorState});
+    if (this.state.editorState != undefined) {
+      const raw = stateToHTML(editorState.getCurrentContent());
+      this.props.onUpdate(raw);
+    }
   }
 
   handleBlur() {
+    /*
     if (this.state.editorState != undefined) {
       const raw = stateToHTML(this.state.editorState.getCurrentContent());
       this.props.onUpdate(raw);
     }
+    */
   }
 
   render() {

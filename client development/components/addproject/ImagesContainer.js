@@ -8,8 +8,12 @@ class ImagesContainer extends Component {
     super(props);
 
     this.state = {
-      images: props.value,
-      imageIndexCounter: (Object.keys(props.value).length + 1)
+      // images: props.value,
+      images: {
+
+      },
+      // imageIndexCounter: (Object.keys(props.value).length + 1)
+      imageIndexCounter: 1
     };
 
     this.handleClick = this.handleClick.bind(this);

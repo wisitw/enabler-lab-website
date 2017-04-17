@@ -1,8 +1,8 @@
 import * as types from '../actions/types';
-import initialState from './initialState';
+import * as initialState from './initialState';
 import { browserHistory } from 'react-router';
 
-export default function projectReducer(state = initialState.project, action) {
+export default function projectReducer(state = initialState.getNewProject(), action) {
   switch(action.type) {
     case types.ADD_PROJECT_SUCCESS:
       browserHistory.push('/project/' + action.project.projectUrl);
@@ -19,14 +19,14 @@ export default function projectReducer(state = initialState.project, action) {
       return state;
 
     case types.CLEAR_PROJECT:
-      return initialState.project;
+      return initialState.getNewProject();
 
     case types.UPDATE_PROJECT_SUCCESS:
       return Object.assign({}, state, action.project);
 
     case types.DELETE_PROJECT_SUCCESS:
       browserHistory.push('/');
-      return initialState.project;
+      return initialState.getNewProject();
 
     default:
       return state;

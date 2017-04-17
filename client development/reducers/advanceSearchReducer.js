@@ -1,8 +1,8 @@
 import * as types from '../actions/types';
-import initialState from './initialState';
+import * as initialState from './initialState';
 import { browserHistory } from 'react-router';
 
-export default function advanceSearchReducer(state = initialState.advanceSearch, action) {
+export default function advanceSearchReducer(state = initialState.getNewAdvanceSearch(), action) {
   switch(action.type) {
     case types.FETCH_NEW_ADVANCE_SEARCH_RESULT_SUCCESS:
       browserHistory.push('search');

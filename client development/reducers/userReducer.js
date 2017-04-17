@@ -1,8 +1,8 @@
 import * as types from '../actions/types';
-import initialState from './initialState';
+import * as initialState from './initialState';
 import { browserHistory } from 'react-router';
 
-export default function userReducer(state = initialState.user, action) {
+export default function userReducer(state = initialState.getNewUser(), action) {
   switch(action.type) {
     case types.SIGNUP_SUCCESS:
       browserHistory.push('/signin');
