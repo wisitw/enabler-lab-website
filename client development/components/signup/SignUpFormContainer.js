@@ -29,7 +29,23 @@ class SignUpFormContainer extends Component {
   updateTextField(key, value) {
     let newState = Object.assign({}, this.state);
     newState.user[key] = value;
-    newState.notTyped = false;
+
+    if (key == "firstName") {
+      newState.notTyped = (value == "") || (this.state.user.lastName == "") || (this.state.user.email == "") || (this.state.user.password == "");
+    }
+
+    if (key == "lastName") {
+      newState.notTyped = (value == "") || (this.state.user.firstName == "") || (this.state.user.email == "") || (this.state.user.password == "");
+    }
+
+    if (key == "email") {
+      newState.notTyped = (value == "") || (this.state.user.lastName == "") || (this.state.user.firstName == "") || (this.state.user.password == "");
+    }
+
+    if (key == "password") {
+      newState.notTyped = (value == "") || (this.state.user.lastName == "") || (this.state.user.email == "") || (this.state.user.firstName == "");
+    }
+
     this.setState(newState);
   }
 

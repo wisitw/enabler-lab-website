@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import TextFieldGroup from './TextFieldGroup';
 import DescriptionContainer from './DescriptionContainer';
 import ImagesContainer from './ImagesContainer';
+import { stateToHTML } from 'draft-js-export-html';
 import * as projectActions from '../../actions/projectActions';
 import * as initialState from '../../reducers/initialState';
 
@@ -40,7 +41,15 @@ class AddProjectFormContainer extends Component {
   updateTextField(key, value) {
     let newState = Object.assign({}, this.state);
     newState.project[key] = value;
-    newState.notTyped = false;
+
+    if (key == "projectName") {
+      newState.notTyped = (value == "") || (this.state.project.projectUrl == "");
+    }
+
+    if (key == "projectUrl") {
+      newState.notTyped = (value == "") || (this.state.project.projectName == "");
+    }
+    
     this.setState(newState);
   }
 
@@ -50,23 +59,25 @@ class AddProjectFormContainer extends Component {
     this.setState(newState);
   }
 
-  updateTextDescription(htmlText) {
+  updateTextDescription(text) {
     let newState = Object.assign({}, this.state);
-    newState.project.projectDescription = htmlText;
-    newState.notTyped = false;
+    newState.project.projectDescription = text;
     this.setState(newState);
   }
 
   updateImages(images) {
     let newState = Object.assign({}, this.state);
     newState.project.projectImages = images;
-    newState.notTyped = false;
     this.setState(newState);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.actions.addProject(this.state.project);
+
+    let newProject = Object.assign({}, this.state.project);
+    newProject.projectDescription = stateToHTML(this.state.project.projectDescription.getCurrentContent());
+
+    this.props.actions.addProject(newProject);
   }
 
   render() {

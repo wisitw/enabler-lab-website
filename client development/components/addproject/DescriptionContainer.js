@@ -1,53 +1,19 @@
 import React, { PropTypes } from 'react';
 import Editor from 'draft-js-editor';
-import { convertFromHTML, ContentState, EditorState } from 'draft-js';
-import { stateToHTML } from 'draft-js-export-html';
-
 
 class DescriptionContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    // const blocksFromHTML = convertFromHTML(props.value);
-    const blocksFromHTML = convertFromHTML("");
-    const state = ContentState.createFromBlockArray(
-      blocksFromHTML.contentBlocks,
-      blocksFromHTML.entityMap
-    );
-
     this.state = {
-      editorState: EditorState.createWithContent(state),
+      
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const blocksFromHTML = convertFromHTML(nextProps.value);
-    const state = ContentState.createFromBlockArray(blocksFromHTML.contentBlocks, blocksFromHTML.entityMap);
-
-    this.setState({
-      isEditing: false,
-      editorState: EditorState.createWithContent(state)
-    });
   }
 
   handleChange(editorState) {
-    this.setState({editorState});
-    if (this.state.editorState != undefined) {
-      const raw = stateToHTML(editorState.getCurrentContent());
-      this.props.onUpdate(raw);
-    }
-  }
-
-  handleBlur() {
-    /*
-    if (this.state.editorState != undefined) {
-      const raw = stateToHTML(this.state.editorState.getCurrentContent());
-      this.props.onUpdate(raw);
-    }
-    */
+    this.props.onUpdate(editorState);
   }
 
   render() {
@@ -58,8 +24,7 @@ class DescriptionContainer extends React.Component {
           <div className="wysiwyg-editor">
             <Editor 
               onChange={ this.handleChange }
-              onBlur={ this.handleBlur }
-              editorState={this.state.editorState}
+              editorState={ this.props.value }
             />
           </div>
         </div>

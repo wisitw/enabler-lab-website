@@ -33,7 +33,15 @@ class SignInFormContainer extends Component {
   updateTextField(key, value) {
     let newState = Object.assign({}, this.state);
     newState.user[key] = value;
-    newState.notTyped = false;
+
+    if (key == "email") {
+      newState.notTyped = (value == "") || (this.state.user.password == "");
+    }
+
+    if (key == "password") {
+      newState.notTyped = (value == "") || (this.state.user.email == "");
+    }
+    
     this.setState(newState);
   }
 
