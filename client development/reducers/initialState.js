@@ -5,7 +5,7 @@ export function getNewUser() {
     email: "",
     password: ""
   }
-};
+}
 
 export function getNewProject() {
   return {
